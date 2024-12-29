@@ -1,0 +1,7 @@
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\bin\Debug\Klijent.exe.config
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\bin\Debug\Klijent.exe
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\bin\Debug\Klijent.pdb
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.csproj.AssemblyReference.cache
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.csproj.CoreCompileInputs.cache
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.exe
+C:\Users\KorisniK\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.pdb
