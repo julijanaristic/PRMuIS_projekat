@@ -38,12 +38,16 @@ namespace Klijent
                     klijentSocket.SendTo(bajti, klijentEP);
                     Console.WriteLine("Uspješno poslata prijava.");
 
-                    /*byte[] bafer = new byte[1024];
-                    EndPoint primljeniEP = new IPEndPoint(IPAddress.Any, 0);
-                    int primljeniBajti = klijentSocket.ReceiveFrom(bafer, ref primljeniEP);
+                    TcpClient tcpClient = new TcpClient("192.168.56.1", 12346);
+                    NetworkStream stream = tcpClient.GetStream();
 
-                    string odgovor = Encoding.UTF8.GetString(bafer, 0, primljeniBajti);
-                    Console.WriteLine($"Odgovor od servera: {odgovor}");*/
+                    byte[] odgovorBajti = new byte[1024];
+                    int primljeniBajti = stream.Read(odgovorBajti, 0, odgovorBajti.Length);
+                    string odgovor = Encoding.UTF8.GetString(odgovorBajti, 0, primljeniBajti);
+                    Console.WriteLine($"Odgovor od servera: {odgovor}");
+
+                    stream.Close();
+                    tcpClient.Close();
                 }
                 catch (SocketException ex)
                 {

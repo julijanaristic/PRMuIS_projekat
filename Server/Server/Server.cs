@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -8,6 +9,8 @@ namespace Server
 {
     public class Server
     {
+        private static List<string> prijavljeniIgraci = new List<string>();
+
         static void Main(string[] args)
         {
             Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -38,6 +41,26 @@ namespace Server
                             if (ValidacijaIgara(listaIgara))
                             {
                                 Console.WriteLine($"Prijava uspješna\nIme igrača: {imeIgraca}\nLista igara: {listaIgara}");
+
+                                prijavljeniIgraci.Add(imeIgraca);
+
+                                TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.56.1"), 12346);
+                                tcpListener.Start();
+
+                                Console.WriteLine($"Čekanje na TCP vezu za igrača {imeIgraca}");
+                                Socket tcpSocket = tcpListener.AcceptSocket();
+                                Console.WriteLine($"Usmjerena TCP veza za {imeIgraca}");
+
+                                string dobrodoslicaPoruka = $"Dobrodošli u trening igru kviza TV Slagalica, današnji takmičar je {imeIgraca}.";
+                                if (prijavljeniIgraci.Count() > 1)
+                                    dobrodoslicaPoruka = $"Dobrodošli u igru kviza TV Slagalica, današnji takmičai su {string.Join(", ", prijavljeniIgraci)}.";
+
+                                byte[] dobrodoslicaBajti = Encoding.UTF8.GetBytes(dobrodoslicaPoruka);
+                                tcpSocket.Send(dobrodoslicaBajti);
+                                Console.WriteLine($"Poslata poruka dobrodošlice: {dobrodoslicaPoruka}");
+                                
+                                tcpSocket.Close();
+                                tcpListener.Stop();
 
                             }
                             else
