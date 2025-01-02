@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{94CE7615-C7C1-4727-98A5-D1C580214E7F}|..\\Klijent\\Klijent.csproj|c:\\users\\korisnik\\desktop\\prmuis_projekat\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94CE7615-C7C1-4727-98A5-D1C580214E7F}|..\\Klijent\\Klijent.csproj|c:\\users\\korisnik\\desktop\\prmuis_projekat\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{204AE564-231E-4E23-BC71-E1D76ACA7626}|Solution Items{204AE564-231E-4E23-BC71-E1D76ACA7626}|C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\Igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{204AE564-231E-4E23-BC71-E1D76ACA7626}|Solution Items{204AE564-231E-4E23-BC71-E1D76ACA7626}|solutionrelative:Igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|c:\\users\\korisnik\\desktop\\prmuis_projekat\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,25 +26,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Igrac.cs",
+              "DocumentMoniker": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\Igrac.cs",
+              "RelativeDocumentMoniker": "Igrac.cs",
+              "ToolTip": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\Igrac.cs",
+              "RelativeToolTip": "Igrac.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T17:34:36.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Klijent.cs",
               "DocumentMoniker": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Klijent\\Klijent.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Klijent.cs",
               "ToolTip": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Klijent\\Klijent.cs",
               "RelativeToolTip": "..\\Klijent\\Klijent.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAcwD0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:37:53.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\Server\\Server.cs",
               "RelativeDocumentMoniker": "Server\\Server.cs",
               "ToolTip": "C:\\Users\\KorisniK\\Desktop\\PRMuIS_projekat\\Server\\Server\\Server.cs",
               "RelativeToolTip": "Server\\Server.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAUwDIAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:37:22.709Z",
               "EditorCaption": ""
