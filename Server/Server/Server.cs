@@ -58,6 +58,15 @@ namespace Server
                                 byte[] dobrodoslicaBajti = Encoding.UTF8.GetBytes(dobrodoslicaPoruka);
                                 tcpSocket.Send(dobrodoslicaBajti);
                                 Console.WriteLine($"Poslata poruka dobrodošlice: {dobrodoslicaPoruka}");
+
+                                byte[] spremanBajti = new byte[1024];
+                                int primljeniSpremanBajti = tcpSocket.Receive(spremanBajti);
+                                string spremanPoruka = Encoding.UTF8.GetString(spremanBajti, 0, primljeniSpremanBajti);
+
+                                if(spremanPoruka == "SPREMAN")
+                                {
+                                    Console.WriteLine($"Igrač {imeIgraca} je spreman za početak igre.");
+                                }
                                 
                                 tcpSocket.Close();
                                 tcpListener.Stop();

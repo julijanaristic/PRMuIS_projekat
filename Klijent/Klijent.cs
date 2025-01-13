@@ -46,6 +46,12 @@ namespace Klijent
                     string odgovor = Encoding.UTF8.GetString(odgovorBajti, 0, primljeniBajti);
                     Console.WriteLine($"Odgovor od servera: {odgovor}");
 
+                    string spreman = "SPREMAN";
+                    byte[] spremanBajti = Encoding.UTF8.GetBytes(spreman);
+                    stream.Write(spremanBajti, 0, spremanBajti.Length);
+                    Console.WriteLine($"Poslata poruka: {spreman}");
+
+
                     stream.Close();
                     tcpClient.Close();
                 }
