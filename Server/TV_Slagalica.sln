@@ -7,10 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klijent", "..\Klijent\Klijent.csproj", "{94CE7615-C7C1-4727-98A5-D1C580214E7F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modeli", "Modeli", "{204AE564-231E-4E23-BC71-E1D76ACA7626}"
-	ProjectSection(SolutionItems) = preProject
-		Igrac.cs = Igrac.cs
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlaseZaIgru", "KlaseZaIgru\KlaseZaIgru.csproj", "{73E221FE-99BC-4C6D-B81D-2D499049844C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +23,10 @@ Global
 		{94CE7615-C7C1-4727-98A5-D1C580214E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94CE7615-C7C1-4727-98A5-D1C580214E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94CE7615-C7C1-4727-98A5-D1C580214E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

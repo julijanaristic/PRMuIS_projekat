@@ -1,0 +1,14 @@
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\obj\Debug\KlaseZaIgru.csproj.AssemblyReference.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\obj\Debug\KlaseZaIgru.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\obj\Debug\Klase-.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\obj\Debug\Klase-.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\bin\Debug\Klase-.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\bin\Debug\Klase-.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Klase\bin\Debug\Klase-.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\bin\Debug\KlaseZaIgru.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\bin\Debug\KlaseZaIgru.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\bin\Debug\KlaseZaIgru.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\obj\Debug\KlaseZaIgru.csproj.AssemblyReference.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\obj\Debug\KlaseZaIgru.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\obj\Debug\KlaseZaIgru.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\KlaseZaIgru\obj\Debug\KlaseZaIgru.pdb
