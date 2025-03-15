@@ -16,3 +16,14 @@ C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Server\obj\Debug\Serve
 C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Server\bin\Debug\KlaseZaIgru.exe
 C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Server\bin\Debug\KlaseZaIgru.pdb
 C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Server\Server\bin\Debug\KlaseZaIgru.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\bin\Debug\Server.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\bin\Debug\Server.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\bin\Debug\Server.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\bin\Debug\KlaseZaIgru.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\bin\Debug\KlaseZaIgru.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\bin\Debug\KlaseZaIgru.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\obj\Debug\Server.csproj.Up2Date
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\obj\Debug\Server.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Server\Server\obj\Debug\Server.pdb

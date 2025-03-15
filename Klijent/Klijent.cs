@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Klijent
@@ -105,15 +106,34 @@ namespace Klijent
                                     int bajtoviZaIspis = stream.Read(skockoBajtovi, 0, skockoBajtovi.Length);
                                     string primljenaPoruka = Encoding.UTF8.GetString(skockoBajtovi, 0, bajtoviZaIspis);
                                     Console.WriteLine(primljenaPoruka);
+                                    
+                                    string dozvoljenaSlova = "HTPKSZ";
 
                                     for(int k = 1; k < 7; k++)
                                     {
-                                        Console.WriteLine("Unesite kombinaciju: ");
-                                        string odgovorZaKombinaciju = Console.ReadLine();
+                                        string odgovorZaKombinaciju;
+
+                                        while (true)
+                                        {
+                                            Console.WriteLine("Unesite kombinaciju: ");
+                                            odgovorZaKombinaciju = Console.ReadLine().ToUpper().Trim();
+                                        
+                                            //PROVERAVANJE DA LI JE KORISNIK UNEO ODGOVARAJUCA SLOVA
+                                            if (!string.IsNullOrEmpty(odgovorZaKombinaciju) && odgovorZaKombinaciju.ToUpper().All(c => dozvoljenaSlova.Contains(c)))
+                                            {
+                                                break; //izlazak iz while petlje ako je unos validan
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Neispravan unos! Dozvoljena su samo slova: H, T, P, K, S, Z.\nMolimo unesite ponovo.\n");
+                                            }
+                                            
+                                        }
 
                                         //SALJE SE SERVERU ODGOVOR
                                         byte[] bajtiZaKombinaciju = Encoding.UTF8.GetBytes(odgovorZaKombinaciju);
                                         stream.Write(bajtiZaKombinaciju, 0, bajtiZaKombinaciju.Length);
+
 
                                         //PRIMANJE ODGOVORA OD SERVERA
                                         byte[] bajtoviOdServeraZaKombinaciju = new byte[1024];
@@ -140,6 +160,45 @@ namespace Klijent
                                 }
                                 else if (igre[i] == "kzz") //KO ZNA ZNA
                                 {
+                                    //PRIMANJE ISPISA ZA IGRU
+                                    byte[] ispis = new byte[1024];
+                                    int bajtoviZaIspis = stream.Read(ispis, 0, ispis.Length);
+                                    string ispisZaIgru = Encoding.UTF8.GetString(ispis, 0, bajtoviZaIspis);
+
+                                    
+                                    Console.WriteLine(ispisZaIgru);
+
+                                    for(int k = 0; k < 5; k++)
+                                    {
+                                        //PRIMANJE PITANJA OD SERVERA
+                                        byte[] bajtoviZaPitanja = new byte[1024];
+                                        int brBajtovaZaPitanja = stream.Read(bajtoviZaPitanja, 0, bajtoviZaPitanja.Length);
+                                        string pitanje = Encoding.UTF8.GetString(bajtoviZaPitanja, 0, brBajtovaZaPitanja);
+
+                                        Console.WriteLine(pitanje);
+
+                                        Console.WriteLine("\nUnesite Vas odgovor: ");
+                                        string odgovorNaPitanje = Console.ReadLine();
+
+                                        //SALJE SE ODGOVOR SERVERU
+                                        byte[] bajtiOdgovora = Encoding.UTF8.GetBytes(odgovorNaPitanje);
+                                        stream.Write(bajtiOdgovora, 0, bajtiOdgovora.Length);
+
+                                        //PRIMANJE PORUKE O TACNOSTI ODGOVORA
+                                        byte[] bajtoviZaTacnost = new byte[1024];
+                                        int brojBajtovaZaTacnost = stream.Read(bajtoviZaTacnost, 0, bajtoviZaTacnost.Length);
+                                        string porukaZaTacnost = Encoding.UTF8.GetString(bajtoviZaTacnost, 0, brojBajtovaZaTacnost);
+
+                                        Console.WriteLine(porukaZaTacnost);
+
+                                    }
+
+                                    //PRIMANJE BROJ POENA OD SERVERA
+                                    byte[] bajtoviZaPoene = new byte[1024];
+                                    int brojBajtovaZaPoene = stream.Read(bajtoviZaPoene, 0, bajtoviZaPoene.Length);
+                                    string brojPoena = Encoding.UTF8.GetString(bajtoviZaPoene, 0, brojBajtovaZaPoene);
+
+                                    Console.WriteLine($"{(int.Parse(brojPoena) == 0 ? "Nazalost" : "Cestitam")}, osvojili ste {brojPoena} poena u igri Ko zna zna.\n");
 
                                 }
 

@@ -1,0 +1,146 @@
+Ko je napisao "Na Drini cuprija"?;1 - Mesa Selimovic;2 - Ivo Andric;3 - Branko Copic;2
+Ko je napisao "Zlocin i kazna"?;1 - Tolstoj;2 - Dostojevski;3 - Gogolj;2
+Ko je naslikao Mona Lizu?;1 - Mikelandjelo;2 - Leonardo da Vinci;3 - Van Gog;2
+Koja boja se dobija mesanjem crvene i plave?;1 - Ljubicasta;2 - Zelena;3 - Narandzasta;1
+Koja boja se dobija mesanjem plave i zute?;1 - Crvena;2 - Zelena;3 - Ljubicasta;2
+Koja drzava ima najvise stanovnika?;1 - SAD;2 - Indija;3 - Kina;3
+Koja drzava je poznata po Taj Mahalu?;1 - Pakistan;2 - Indija;3 - Iran;2
+Koja drzava je poznata po pici?;1 - Francuska;2 - Italija;3 - Spanija;2
+Koja drzava se naziva "Zemlja izlazeceg sunca"?;1 - Kina;2 - Japan;3 - Indija;2
+Koja drzava se proteze na dva kontinenta?;1 - Rusija;2 - Egipat;3 - Indonezija;1
+Koja država ima najvise osvojenih fudbalskih Svetskih prvenstava?;1 - Brazil;2 - Nemacka;3 - Italija;1
+Koja je najmanja drzava na svetu?;1 - Vatikan;2 - Monako;3 - Andora;1
+Koja je najpoznatija piramida u Egiptu?;1 - Keopsova piramida;2 - Kefrenova piramida;3 - Mikerinova piramida;1
+Koja je najveca zivotinja na kopnu?;1 - Lav;2 - Slon;3 - Zirafa;2
+Koja je najvisa planina na svetu?;1 - Mont Everest;2 - K2;3 - Kilimandzaro;1
+Koja je osnovna boja?;1 - Zelena;2 - Plava;3 - Ljubicasta;2
+Koja je osnovna jedinica mase u SI sistemu?;1 - Gram;2 - Kilogram;3 - Miligram;2
+Koja je osnovna jedinica mase u SI sistemu?;1 - Gram;2 - Kilogram;3 - Tona;2
+Koja je zvanicna valuta u Velikoj Britaniji?;1 - Dolar;2 - Euro;3 - Funta;3
+Koja planeta je najbliza Suncu?;1 - Merkur;2 - Venera;3 - Mars;1
+Koja planeta je najbliza Suncu?;1 - Merkur;2 - Venera;3 - Zemlja;1
+Koja ptica moze da leti unazad?;1 - Golub;2 - Kolibri;3 - Soko;2
+Koja reka je najduza na svetu?;1 - Nil;2 - Amazon;3 - Misisipi;1
+Koja reka prolazi kroz Beograd?;1 - Sava;2 - Dunav;3 - Drina;2
+Koja reka prolazi kroz London?;1 - Sena;2 - Temza;3 - Rajna;2
+Koja vrsta drveta daje plod lesnik?;1 - Hrast;2 - Leska;3 - Bor;2
+Koja zemlja je domovina cokolade?;1 - Svajcarska;2 - Belgija;3 - Oba;3
+Koja zivotinja je najbrza u vodi?;1 - Delfin;2 - Ajkula;3 - Plava sabljarka;3
+Koja zivotinja je simbol Kine?;1 - Panda;2 - Tigar;3 - Zmaj;1
+Koja zivotinja je simbol mudrosti?;1 - Lisica;2 - Sova;3 - Orao;2
+Koja zivotinja moze da hoda unazad?;1 - Rak;2 - Kornjaca;3 - Slon;1
+Koje godine je pao Berlinski zid?;1 - 1961;2 - 1989;3 - kad god da je objavljen fim "Atomic Blonde";2
+Koji element ima hemijski simbol O?;1 - Zlato;2 - Kisik (Oksigen);3 - Srebro;2
+Koji element je neophodan za disanje?;1 - Azot;2 - Kisik;3 - Helijum;2
+Koji element u periodnom sistemu ima oznaku "O"?;1 - Vodonik;2 - Kisik;3 - Azot;2
+Koji element u periodnom sistemu ima simbol "Fe"?;1 - Bakar;2 - Aluminijum;3 - Gvozdje;3
+Koji gas biljke koriste u procesu fotosinteze?;1 - Azot;2 - Ugljen-dioksid;3 - Vodonik;2
+Koji glavni grad se nalazi najblize ekvatoru?;1 - Bogota;2 - Nairobi;3 - Kito;3
+Koji grad je domacin Olimpijskih igara 2024?;1 - Pariz;2 - Los Andjeles;3 - Tokio;1
+Koji grad je poznat kao "Grad svetlosti"?;1 - London;2 - Pariz;3 - Rim;2
+Koji instrument koristi klapne umesto zica?;1 - Gitara;2 - Klavir;3 - Saksofon;3
+Koji je glavni grad Australije?;1 - Sidnej;2 - Kanbera;3 - Melburn;2
+Koji je glavni grad Brazila?;1 - Rio de Zaneiro;2 - Sao Paulo;3 - Brazilija;3
+Koji je glavni grad Japana?;1 - Tokio;2 - Peking;3 - Seul;1
+Koji je glavni grad Kanade?;1 - Toronto;2 - Vankuver;3 - Otava;3
+Koji je hemijski simbol za natrijum?;1 - Na;2 - N;3 - S;1
+Koji je hemijski simbol za zlato?;1 - Au;2 - Ag;3 - Zn;1
+Koji je najduzi recni sistem na svetu?;1 - Nil;2 - Amazon;3 - Misisipi;2
+Koji je najpoznatiji egipatski faraon?;1 - Tutankamon;2 - Ramzes II;3 - Kleopatra;1
+Koji je najpoznatiji muzej u Parizu?;1 - Prado;2 - Luvr;3 - Britanski muzej;2
+Koji je najveci kontinent na svetu?;1 - Afrika;2 - Azija;3 - Evropa;2
+Koji je najveci okean na svetu?;1 - Atlantski;2 - Indijski;3 - Tihi;3
+Koji je najveci ostrvski narod na svetu?;1 - Filipini;2 - Indonezija;3 - Japan;2
+Koji je najveci sisar na svetu?;1 - Slon;2 - Plavi kit;3 - Nosorog;2
+Koji je prvi film u serijalu "Ratovi zvezda"?;1 - Nova nada;2 - Imperija uzvraca udarac;3 - Fantomska pretnja;1
+Koji je simbol za vodonik u periodnom sistemu?;1 - H;2 - He;3 - O;1
+Koji je zvanicni jezik u Spaniji?;1 - Portugalski;2 - Francuski;3 - Spanski;3
+Koji kontinent ima najmanje stanovnika?;1 - Australija;2 - Antarktik;3 - Evropa;2
+Koji kontinent ima najvise drzava?;1 - Afrika;2 - Evropa;3 - Azija;1
+Koji kontinent je domovina lavova?;1 - Azija;2 - Afrika;3 - Juzna Amerika;2
+Koji materijal je najcesce koriscen za izradu skulptura u staroj Grckoj?;1 - Mermer;2 - Gvozdje;3 - Bakar;1
+Koji metal ima hemijski simbol "Au"?;1 - Aluminijum;2 - Srebro;3 - Zlato;3
+Koji naucnik je otkrio gravitaciju?;1 - Ajnstajn;2 - Njutn;3 - Tesla;2
+Koji naucnik je otkrio penicilin?;1 - Paster;2 - Fleming;3 - Mendel;2
+Koji organ je odgovoran za filtriranje krvi?;1 - Jetra;2 - Bubrezi;3 - Pluca;2
+Koji organ u ljudskom telu pumpa krv?;1 - Pluca;2 - Jetra;3 - Srce;3
+Koji pisac je napisao "Ana Karenjina"?;1 - Dostojevski;2 - Tolstoj;3 - Gogolj;2
+Koji poznati naucnik je otkrio radioaktivnost?;1 - Marija Kiri;2 - Nils Bor;3 - Maks Plank;1
+Koji poznati slikar je odsekao sebi uvo?;1 - Pikaso;2 - Van Gog;3 - Rembrant;2
+Koji sport koristi lopticu i reket?;1 - Tenis;2 - Fudbal;3 - Kosarka;1
+Koji sport koristi termin "love" za oznacavanje nule?;1 - Fudbal;2 - Tenis;3 - Kosarka;2
+Koji sport se igra na ledu sa palicama i pakom?;1 - Hokej;2 - Curling;3 - Bejzbol;1
+Koji sport se igra na najduzem terenu?;1 - Fudbal;2 - Golf;3 - Tenis;2
+Koliko kostiju ima ljudsko telo?;1 - 206;2 - 212;3 - 189;1
+Koliko planeta ima Suncev sistem?;1 - 7;2 - 8;3 - 9;2
+Koliko planeta ima Suncev sistem?;1 - 8;2 - 9;3 - 7;1
+Koliko prstiju ima ljudska ruka?;1 - 4;2 - 5;3 - 6;2
+Koliko sekundi ima jedan minut?;1 - 60;2 - 100;3 - 120;1
+Koliko strana ima trougao?;1 - 2;2 - 3;3 - 4;2
+Koja je formula za racunanje brzine svetlosti?;1 - c = λν;2 - c = m/v;3 - c = a/t;1
+Koji je najdublji okean na svetu?;1 - Atlantski;2 - Indijski;3 - Tihi;3
+Koji je najstariji poznati univerzum?;1 - Andromeda;2 - Mlecni put;3 - Univerzum u kojem zivimo;2
+Koji je broj Avogadrova konstanta?;1 - 6.022 × 10^23;2 - 1.602 × 10^-19;3 - 3.1415;1
+Koji je otpor u serijskoj vezi dva otpornika od 4Ω i 6Ω?;1 - 2Ω;2 - 10Ω;3 - 24Ω;2
+Koji je najmanji prirodni broj koji je deljiv sa svim brojevima od 1 do 10?;1 - 100;2 - 120;3 - 2520;3
+Koja je najveća zvezda u nasoj galaksiji?;1 - Betelgez;2 - VY Canis Majoris;3 - Sirius;2
+Koja nauka proučava mozak i nervni sistem?;1 - Psihologija;2 - Biologija;3 - Nevrološka nauka;3
+Koji je prvi čovek koji je putovao u svemir?;1 - Jurij Gagarin;2 - Alan Shepard;3 - Neil Armstrong;1
+Koja je jedinica za kolicinu toplote?;1 - Dzul;2 - Kelvin;3 - Joule;1
+Koji je najveći grad na svetu po broju stanovnika?;1 - Tokio;2 - Njujork;3 - Shangaj;1
+Koji element u periodnom sistemu ima oznaku "Hg"?;1 - Helijum;2 - Ziva;3 - Hlor;2
+Koji je najduzi most na svetu?;1 - Most Danyang-Kunshan;2 - Most Great Belt;3 - Most Akashi-Kaikyō;1
+Koji je najpoznatiji egipatski bog?;1 - Ra;2 - Osiris;3 - Horus;1
+Koji je najpoznatiji americki predsednik koji je bio prvi u istoriji da je bio izabran za dva uzastopna mandata?;1 - Abraham Lincoln;2 - George Washington;3 - Franklin D. Roosevelt;3
+Koji je naziv za pojavu kad svetlost menja pravac prolaska kroz razlicite medije?;1 - Refleksija;2 - Refrakcija;3 - Difuzija;2
+Koji je najveci kontinent po broju stanovnika?;1 - Azija;2 - Afrika;3 - Evropa;1
+Koji je hemijski simbol za elemente koji su u grupi halogenih gasova?;1 - Cl, Br, I, F;2 - N, O, H, C;3 - He, Ne, Ar, Kr;1
+Koja planeta ima najvise meseca?;1 - Jupiter;2 - Saturn;3 - Mars;1
+Koji je prvi otkriveni hemijski element?;1 - Helijum;2 - Vodonik;3 - Ugljen-dioksid;2
+Koji je najveci preziveli sisar na svetu?;1 - Plavi kit;2 - Slon;3 - Nosorog;1
+Koji hemijski element je najrasprostranjeniji u ljudskom telu?;1 - Oksigen;2 - Ugljenik;3 - Azot;1
+Koji je izumitelj prvog komercijalnog telefona?;1 - Nikola Tesla;2 - Thomas Edison;3 - Alexander Graham Bell;3
+Koji grad je sedište NATO-a?;1 - London;2 - Brisel;3 - Pariz;2
+Koji je najpoznatiji pesnik u Engleskoj?;1 - William Shakespeare;2 - Charles Dickens;3 - Geoffrey Chaucer;1
+Koji je izumitelj prve kompjuterske tastature?;1 - Charles Babbage;2 - Alan Turing;3 - Christopher Latham Sholes;3
+Koji je osnovni princip OOP (Objektno orijentisanog programiranja)?;1 - Apstrakcija;2 - Nasledjivanje;3 - Polimorfizam;1
+Koji je jezik programiranja koji se koristi za razvoj Android aplikacija?;1 - Java;2 - C#;3 - Kotlin;3
+Koji je osnovni tip podatka za celobrojne vrednosti u C?;1 - float;2 - int;3 - double;2
+Koja je svrha kljucne reci "public" u Javi?;1 - Obezbedjuje pristup clanovima klase izvan paketa;2 - Obezbedjuje pristup samo unutar klase;3 - Ne dozvoljava pristup clanovima klase;1
+Koji je operator za dodelu vrednosti u C#?;1 - ==;2 - =;3 - +=;2
+Sta predstavlja "Recursion" u programiranju?;1 - Pozivanje funkcije unutar same sebe;2 - Kreiranje objekata u memoriji;3 - Primenjivanje uslova u petlji;1
+Koji je osnovni cilj koriscenja "pointers" u C jeziku?;1 - Povecanje brzine programa;2 - Manipulisanje podacima na nizem nivou;3 - Prikazivanje podataka u korisnickom interfejsu;2
+Koji je rezultat sledece operacije u C: `5 / 2`?;1 - 2.5;2 - 2;3 - 3;2
+Koji je osnovni princip koji stoji iza "Design Patterns" u programiranju?;1 - Reuse of proven solutions;2 - Koriscenje specijalnih jezika za kodiranje;3 - Skrivanje podataka u aplikaciji;1
+Koji je tip podatka koji omogucava rad sa velikim brojevima u Javi?;1 - int;2 - long;3 - BigInteger;3
+Koji je osnovni metod u Javi koji se poziva prilikom pokretanja programa?;1 - start();2 - main();3 - run();2
+Koji je alat za kontrolu verzija koji je najpopularniji u industriji?;1 - SVN;2 - Git;3 - Mercurial;2
+Sta predstavlja "Polymorphism" u objektno-orijentisanom programiranju?;1 - Sposobnost objekta da se ponasa kao vise razlicitih tipova;2 - Sposobnost klase da nasledjuje druge klase;3 - Sposobnost objekta da sakrije svoje unutrasnje implementacije;1
+Koji je tip podatka u Pythonu koji omogucava rad sa nepromenljivim podacima?;1 - List;2 - Set;3 - Tuple;3
+Koji je najcesci nacin za upravljanje izuzecima u Pythonu?;1 - try-catch blok;2 - try-except blok;3 - if-else blok;2
+Koji je osnovni tip podataka koji koristi 8-bitne vrednosti u C?;1 - short;2 - char;3 - int;2
+Koja je prednost koriscenja "Generics" u Javi?;1 - Omogucava rad sa razlicitim tipovima podataka bez potrebe za promenom koda;2 - Povecava brzinu izvrsavanja programa;3 - Obezbedjuje bolju sigurnost podataka;1
+Koji je razlika izmedju "Array" i "ArrayList" u Javi?;1 - Array ima fiksnu velicinu, dok ArrayList ima promenljivu velicinu;2 - Array je brzi u izvrsavanju, dok ArrayList koristi vise memorije;3 - ArrayList je namenjen za rad sa numerickim podacima, dok Array ne moze;1
+Koji je najvazniji razlog za koriscenje "Database Indexing" u programiranju?;1 - Da bi se poboljsala brzina pretrage podataka u bazi;2 - Da bi se sacuvala sigurnost podataka;3 - Da bi se omogucilo povezivanje vise tabela;1
+Koji je alat za automatizaciju testiranja najcesce koriscen u programiranju?;1 - Selenium;2 - Postman;3 - Jenkins;1
+Koji je osnovni tip petlje koja se koristi za iteraciju kroz elemente u Python listi?;1 - while;2 - for;3 - do-while;2
+Koji je metod za izvrsavanje SQL upita u Javi koristeci JDBC?;1 - executeQuery();2 - execute();3 - run();1
+Koji je glavni razlog zasto svemir prosiruje i sta je "tamna energija"?;1 - Tamna energija je hipoteticka sila koja uzrokuje ubrzanu ekspanziju svemira;2 - Tamna energija je otkrice koje omogucava svemiru da prestane da se siri;3 - Tamna energija je vrsta energije koja se koristi za pokretanje galaksija;1
+Koja je razlika izmedju kvantne mehanike i klasicne fizike u pogledu opisa subatomskih cestica?;1 - Kvantna mehanika koristi probabilisticke pristupe, dok klasicna fizika koristi deterministicke zakone;2 - Kvantna mehanika je starija teorija od klasicne fizike;3 - Kvantna mehanika ne koristi matematske modele, dok klasicna fizika koristi;1
+Koji je najvazniji doprinos teoriji relativnosti u razumevanju gravitacije?;1 - Predstavlja gravitaciju kao zakrivljenost prostora-vremena uzrokovanu masom i energijom;2 - Predstavlja gravitaciju kao silu koja deluje izmedju dva tela;3 - Gravitacija je potpuno objasnjena bez upotrebe prostora-vremena;1
+Kako se moze objasniti fenomen svesti iz neurobioloskog aspekta?;1 - Svesta je proizvod kompleksnih mreza neuronskih aktivnosti u mozgu;2 - Svesta je rezultat spoljasnjih faktora koji uticu na mozak;3 - Svesta je apstraktna, ne moze se objasniti bioloski;1
+Koja je razlika izmedju deterministickih i stohastickih procesa u statistici?;1 - Deterministicki procesi imaju unapred predvidljive ishode, dok stohasticki procesi ukljucuju nasumicne varijacije;2 - Deterministicki procesi su uvek nasumicni, dok stohasticki nisu;3 - Stohasticki procesi su predvidivi, dok deterministicki nisu;1
+Koji je najvazniji faktor za razvoj odrzivih izvora energije u 21. veku?;1 - Razvoj tehnologija za efikasnu proizvodnju i skladistenje energije iz obnovljivih izvora;2 - Razvoj nuklearnih energetskih reaktora;3 - Razvoj novih fosilnih goriva;1
+Kako bi trebalo da se razvijaju eticki principi u oblasti biotehnologije i genetskog inzenjeringa?;1 - Kroz medjunarodne regulative koje balansiraju naucni napredak sa ljudskim pravima i ekoloskom odgovornoscu;2 - Kroz slobodno trziste koje omogucava biotehnoloskim firmama da testiraju bilo koju tehnologiju;3 - Kroz restriktivne zakone koji onemogucavaju bilo kakav genetski inzenjering;1
+Kako se "Singularity" teorija povezuje sa buducnoscu vestacke inteligencije?;1 - Predvidja trenutak kada vestacka inteligencija postane toliko napredna da ce nadmasiti ljudsku sposobnost razmisljanja i odlucivanja;2 - Predvidja da ce AI postati beskorisna kada dostigne odredjeni nivo naprednosti;3 - Singularity predvidja razvoj potpuno autonomnih sistema koji nece imati nikakvu interakciju sa ljudima;1
+Koji je osnovni razlog zasto je evolucija zivota na Zemlji postepena, a ne instantna?;1 - Zbog postupnih genetskih promena koje se prenose kroz generacije, sto omogucava adaptaciju;2 - Zbog instantnih mutacija koje se desavaju svakodnevno;3 - Zbog toga sto zivot na Zemlji ne zavisi od evolucije, vec od konstantnog unosa energije;1
+Koje su prednosti i mane implementacije decentralizovanih sistema u drustvu?;1 - Prednosti ukljucuju veci nivo sigurnosti i privatnosti, dok mane ukljucuju teskoce u regulaciji i koordinaciji;2 - Prednosti ukljucuju laksu implementaciju, dok mane ukljucuju vece troskove;3 - Decentralizovani sistemi su potpuno beskorisni za drustvo;1
+Sta je "uncertainty principle" u kvantnoj fizici i kako se odnosi na nasu sposobnost da merimo subatomske cestice?;1 - Postoji granica u preciznosti sa kojom mozemo izmeriti poziciju i brzinu cestice istovremeno;2 - Ne postoji granica u preciznosti merenja subatomskih cestica;3 - Uncertainty principle se odnosi na to da cestice ne mogu biti merene uopste;1
+Kako funkcioniše kvantna racunarska teorija i koje su njene potencijalne primene?;1 - Kvantni racunari koriste kvantne bitove koji mogu postojati u vise stanja istovremeno, sto omogucava ubrzanje odredjenih proracuna;2 - Kvantni racunari su zasnovani na klasicnom modelu racunanja i nisu mnogo brzi od tradicionalnih racunara;3 - Kvantni racunari koriste samo binarne brojeve, ali na specificnu, kvantnu metodologiju;1
+Kako bi se resavalo pitanje globalnog zagrevanja u buducnosti?;1 - Kroz smanjenje emisije gasova sa efektom staklene baste i prelazak na obnovljive izvore energije;2 - Kroz povecanje proizvodnje fosilnih goriva kako bi se stvorio balans u atmosferi;3 - Kroz povecanje upotrebe hemikalija koje mogu apsorbovati CO2 iz atmosfere;1
+Koja je uloga nevidljivih i neotkrivenih materijalnih objekata u svemiru, poput tamne materije?;1 - Tamna materija je odgovorna za vecinu gravitacije u svemiru, ali nije direktno vidljiva;2 - Tamna materija ne postoji i sve sto vidimo u svemiru je stvarno;3 - Tamna materija je odgovorna za sirenje svemira;1
+Sta je teorija haosa i kako objasnjava nepredvidive promene u kompleksnim sistemima?;1 - Teorija haosa tvrdi da mali, neznatni faktori mogu izazvati velike, nepredvidive promene u sistemu;2 - Teorija haosa tvrdi da kompleksni sistemi uvek imaju predvidljive ishode;3 - Teorija haosa objasnjava kako sistemi uvek funkcionišu u pravilnim ciklusima;1
+Koji je najveci izazov u razvoju odrzivih gradova i infrastrukture?;1 - Kombinacija visokih troskova, energetske efikasnosti i smanjenja negativnog uticaja na zivotnu sredinu;2 - Nedostatak tehnologija za gradnju odrzivih objekata;3 - Nedostatak radne snage za razvoj odrzivih gradova;1
+Sta je osnovna filozofska razlika izmedju "realizma" i "idealizma" u kontekstu drustva i morala?;1 - Realizam tvrdi da ljudi rade u interesu vlastite koristi, dok idealizam veruje da bi ljudi trebalo da teze visim moralnim vrednostima;2 - Realizam veruje u moralne zakone, dok idealizam veruje da je moral relativan;3 - Realizam je teorija koja se koristi u ekonomiji, dok idealizam ima veze sa filozofijom;1
+Kako bi se moglo regulisati koriscenje novih tehnologija kao sto su genetski inzenjering i AI, da bi se izbegli potencijalni negativni efekti na drustvo?;1 - Kroz medjunarodne zakonodavne regulative koje obezbedjuju sigurno koriscenje ovih tehnologija;2 - Kroz samoregulaciju od strane industrije koja razvija ove tehnologije;3 - Kroz potpuni zabran razvoja ovih tehnologija zbog potencijalnih opasnosti;1
+Koji su kljucni faktori za stabilizaciju globalne ekonomije u uslovima velike ekonomske krize?;1 - Koriscenje monetarnih i fiskalnih politika za balansiranje potrosnje i stednje, kao i medjunarodna saradnja;2 - Povecanje uvoza i izvoza u zemljama u razvoju;3 - Drasticno smanjenje drzavnih izdataka i smanjenje socijalnih usluga;1

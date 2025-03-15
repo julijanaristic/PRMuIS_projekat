@@ -12,3 +12,10 @@ C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.csp
 C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.csproj.CoreCompileInputs.cache
 C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.exe
 C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat\Klijent\obj\Debug\Klijent.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\bin\Debug\Klijent.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\bin\Debug\Klijent.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\bin\Debug\Klijent.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\obj\Debug\Klijent.csproj.AssemblyReference.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\obj\Debug\Klijent.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\obj\Debug\Klijent.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\obj\Debug\Klijent.pdb

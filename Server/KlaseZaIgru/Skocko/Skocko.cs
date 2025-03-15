@@ -87,13 +87,13 @@ namespace KlaseZaIgru.Skocko
             }
 
             //sada trazimo znakove koji su deo kombinacije ali nisu na pravom mestu
-            for(int i = 0; i < 4; i++)
+            for(int i = 0; i < 4; i++) // i prolazi kroz  tekucuKombinaciju
             {
                 if (!pogodjeniNaMestu[i]) //znaci gleda ta mesta gde jos nije pogodjeno slovo
                 {
-                    for(int j = 0; j < 4; j++)
+                    for(int j = 0; j < 4; j++) // j prolazi kroz trazenuKombinaciju
                     {
-                        if (!iskorisceni[j] && znakoviOdKlijenta[i] == znakoviOdServera[j])
+                        if (!iskorisceni[j] && znakoviOdKlijenta[i] == znakoviOdServera[j]) 
                         {
                             znakoviNaPogresnomMestu++;
                             iskorisceni[j] = true;
@@ -117,12 +117,17 @@ namespace KlaseZaIgru.Skocko
 
             if(znakoviNaPogresnomMestu > 0)
             {
-                if(poruka != "")
+                if(!string.IsNullOrEmpty(poruka))
                 {
                     poruka += " i ";
                 }
 
                 poruka += $"{znakoviNaPogresnomMestu} {(znakoviNaPogresnomMestu == 1 ? "znak nije" : "znaka nisu")} na mestu";
+            }
+
+            if (string.IsNullOrEmpty(poruka))
+            {
+                return "Nema pogodataka.\n";
             }
 
             return poruka + ".\n";
