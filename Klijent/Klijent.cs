@@ -52,7 +52,7 @@ namespace Klijent
                     string odgovor = Encoding.UTF8.GetString(odgovorBajti, 0, primljeniBajti);
                     Console.WriteLine(odgovor);
 
-
+               
                     while (true)
                     {
                         string rec = "SPREMAN";

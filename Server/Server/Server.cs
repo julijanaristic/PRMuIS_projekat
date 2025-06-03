@@ -23,9 +23,10 @@ namespace Server
             Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //za IPv4 se koristi AddressFamily.InterNetwork, SocketType.Dgram je za UDP
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Any, 12345);
-            serverSocket.Bind(serverEP);
             //IPAddress.Any - Koristi se da se utičnica veže na sve dostupne mrežne interfejse
             //12345 - Broj porta na kojem utičnica osluškuje zahteve
+            serverSocket.Bind(serverEP);
+            
 
             Console.WriteLine("Server pokrenut. Čekanje na prijave igrača preko UDP-a.");
 
@@ -74,6 +75,7 @@ namespace Server
                                 NetworkStream stream = new NetworkStream(tcpSocket);
                                 Console.WriteLine($"Usmerena TCP veza za {imeIgraca}");
 
+
                                 string dobrodoslicaPoruka = $"Dobrodošli u trening igru kviza TV Slagalica, današnji takmičar je {imeIgraca}.";
                                 if (PrijavljeniIgraci.Count() > 1)
                                     dobrodoslicaPoruka = $"Dobrodošli u igru kviza TV Slagalica, današnji takmičari su {string.Join(", ", PrijavljeniIgraci)}.";
@@ -81,6 +83,7 @@ namespace Server
                                 byte[] dobrodoslicaBajti = Encoding.UTF8.GetBytes(dobrodoslicaPoruka);
                                 tcpSocket.Send(dobrodoslicaBajti);
                                 Console.WriteLine($"Poslata poruka dobrodošlice: {dobrodoslicaPoruka}");
+
 
                                 byte[] spremanBajti = new byte[1024];
                                 int primljeniSpremanBajti = tcpSocket.Receive(spremanBajti);

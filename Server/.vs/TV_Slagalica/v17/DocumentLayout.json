@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|c:\\users\\korisnik\\onedrive\\desktop\\prmuis_projekat2\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{94CE7615-C7C1-4727-98A5-D1C580214E7F}|..\\Klijent\\Klijent.csproj|c:\\users\\korisnik\\onedrive\\desktop\\prmuis_projekat2\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -18,12 +14,16 @@
       "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\slagalica\\slagalica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|c:\\users\\korisnik\\onedrive\\desktop\\prmuis_projekat2\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,32 +33,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 182,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Klijent.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Klijent\\Klijent.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Klijent.cs",
               "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Klijent\\Klijent.cs",
               "RelativeToolTip": "..\\Klijent\\Klijent.cs",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAmwHMAAAA0AAAA",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAowNIAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T18:05:27.733Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Slagalica.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
-              "RelativeDocumentMoniker": "KlaseZaIgru\\Slagalica\\Slagalica.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
-              "RelativeToolTip": "KlaseZaIgru\\Slagalica\\Slagalica.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAowEYAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T18:50:39.512Z"
             },
             {
               "$type": "Document",
@@ -68,13 +56,14 @@
               "RelativeDocumentMoniker": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
               "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
               "RelativeToolTip": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAcwC0AAAAAAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAgwCoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T13:01:17.364Z"
+              "WhenOpened": "2025-03-04T13:01:17.364Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Igrac.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Igrac\\Igrac.cs",
               "RelativeDocumentMoniker": "KlaseZaIgru\\Igrac\\Igrac.cs",
@@ -82,17 +71,18 @@
               "RelativeToolTip": "KlaseZaIgru\\Igrac\\Igrac.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAcwBMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T15:44:10.203Z"
+              "WhenOpened": "2025-03-03T15:44:10.203Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\Server\\Server.cs",
               "RelativeDocumentMoniker": "Server\\Server.cs",
               "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\Server\\Server.cs",
               "RelativeToolTip": "Server\\Server.cs",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAmwJEAAABwAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHIAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T16:59:53.647Z",
               "EditorCaption": ""
@@ -100,12 +90,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Slagalica.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
+              "RelativeDocumentMoniker": "KlaseZaIgru\\Slagalica\\Slagalica.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
+              "RelativeToolTip": "KlaseZaIgru\\Slagalica\\Slagalica.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAADwAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T18:50:39.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Skocko.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Skocko\\Skocko.cs",
               "RelativeDocumentMoniker": "KlaseZaIgru\\Skocko\\Skocko.cs",
               "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Skocko\\Skocko.cs",
               "RelativeToolTip": "KlaseZaIgru\\Skocko\\Skocko.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG4AAAAfAAAA",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAAHUAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T19:27:55.476Z",
               "EditorCaption": ""
