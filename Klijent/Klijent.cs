@@ -14,7 +14,8 @@ namespace Klijent
         {
             Socket klijentUdpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             // PROMENITE IP ADRESU U ZAVISNOSTI OD VAŠE KONFIGURACIJE MREŽE
-            IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.56.1"), 12345);
+            //IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.56.1"), 12345); // Kaca
+            IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.1.2"), 12345); // Jana
             byte[] buffer = new byte[1024];
 
             Console.WriteLine("Klijent je spreman za povezivanje sa serverom, pritisnite enter");
@@ -78,7 +79,8 @@ namespace Klijent
             try
             {
                 // PROMENITE IP ADRESU U ZAVISNOSTI OD VAŠE KONFIGURACIJE MREŽE
-                tcpClient = new TcpClient("192.168.56.1", 12346);
+                //tcpClient = new TcpClient("192.168.56.1", 12346); // Kaca
+                tcpClient = new TcpClient("192.168.1.2", 12346); // Jana
                 stream = tcpClient.GetStream();
                 Console.WriteLine("Klijent je uspešno povezan sa serverom putem TCP-a!");
 

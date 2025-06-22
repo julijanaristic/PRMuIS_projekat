@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|c:\\users\\korisnik\\documents\\github\\prmuis_projekat\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94CE7615-C7C1-4727-98A5-D1C580214E7F}|..\\Klijent\\Klijent.csproj|c:\\users\\korisnik\\documents\\github\\prmuis_projekat\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|c:\\users\\korisnik\\documents\\github\\prmuis_projekat\\server\\klasezaigru\\rezultati\\rezultatigraca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,11 +37,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 182,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "KoZnaZna.cs",
               "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
               "RelativeDocumentMoniker": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
@@ -54,20 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\Server\\Server.cs",
               "RelativeDocumentMoniker": "Server\\Server.cs",
               "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\Server\\Server.cs",
               "RelativeToolTip": "Server\\Server.cs",
-              "ViewState": "AgIAAOUAAAAAAAAAAAAQwPcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAQwPEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T16:59:53.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Klijent.cs",
               "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Klijent\\Klijent.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Klijent.cs",

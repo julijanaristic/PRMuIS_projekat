@@ -1,7 +1,9 @@
 ﻿using KlaseZaIgru.Igrac;
 using KlaseZaIgru.KoZnaZna;
+using KlaseZaIgru.Rezultati;
 using KlaseZaIgru.Skocko;
 using KlaseZaIgru.Slagalica;
+//using KlaseZaIgru.Rezultati;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -34,6 +36,8 @@ namespace Server
         private static Dictionary<Socket, int> pitanjeKzz = new Dictionary<Socket, int>();
         private static Dictionary<Socket, string> imena = new Dictionary<Socket, string>();
         private static Dictionary<string, string[]> prijaveUDP = new Dictionary<string, string[]>();
+        private static Dictionary<int, Dictionary<Socket, int>> kzzOdgovoriPoPitanju = new Dictionary<int, Dictionary<Socket, int>>();
+        private static Dictionary<Socket, int> skockoPoeni = new Dictionary<Socket, int>();
 
         static void Main(string[] args)
         {
@@ -46,11 +50,13 @@ namespace Server
 
             Console.WriteLine("Server pokrenut. Čekanje na prijave igrača preko UDP-a.");
 
-            TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.56.1"), 12346);
+            //TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.56.1"), 12346);
+            TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.1.2"), 12346);
             tcpListener.Start();
 
             List<Socket> klijenti = new List<Socket>();
             string imeIgraca;
+            Dictionary<Socket, RezultatIgraca> rezultati = new Dictionary<Socket, RezultatIgraca>();
 
             while (true)
             {
@@ -221,9 +227,28 @@ namespace Server
                                 if (int.TryParse(poruka, out int odg) && odg >= 1 && odg <= 3)
                                 {
                                     KoZnaZna igra = kzzIgre[klijent];
-                                    int poen = igra.ProveriOdgovor(odg);
+                                    int poen = 0;
+                                    if (!kzzOdgovoriPoPitanju.ContainsKey(pitanjeKzz[klijent]))
+                                        kzzOdgovoriPoPitanju[pitanjeKzz[klijent]] = new Dictionary<Socket, int>();
+                                    
+
+                                    if (!kzzOdgovoriPoPitanju[pitanjeKzz[klijent]].ContainsKey(klijent))
+                                    {
+                                        if (igra.ProveriOdgovor(odg) == 10)
+                                        {
+                                            int brojTacnihOdgovora = kzzOdgovoriPoPitanju[pitanjeKzz[klijent]].Count;
+                                            double umanjenje = Math.Pow(0.85, brojTacnihOdgovora);
+                                            poen = (int)(10 * umanjenje);
+                                        }
+                                        else
+                                            poen = -5;
+                                       
+                                        kzzOdgovoriPoPitanju[pitanjeKzz[klijent]][klijent] = poen;
+                                    }
+                                    
                                     poeni[klijent] += poen;
                                     pitanjeKzz[klijent]++;
+
 
                                     if (pitanjeKzz[klijent] < 5)
                                     {
@@ -279,13 +304,23 @@ namespace Server
                         imena.Remove(klijent);
                         klijent.Close();
                         klijenti.Remove(klijent);
+
+                        Console.WriteLine("\nKonačna tabela poena:");
+                        foreach(var igrac in imena)
+                        {
+                            string ime = igrac.Value;
+                            int ukupno = poeni.ContainsKey(igrac.Key) ? poeni[igrac.Key] : 0;
+                            int skPoen = skockoPoeni.ContainsKey(igrac.Key) ? skockoPoeni[igrac.Key] : 0;
+                            Console.WriteLine($"{ime,-15} | Ukupno : {ukupno,3} | Skočko: {skPoen}");
+                        }
+
                         break;
                     }
                 }
             }
-                Console.WriteLine("Server zavrsava sa radom");
-                Console.ReadKey();
-                serverSocket.Close();
+            Console.WriteLine("Server zavrsava sa radom");
+            Console.ReadKey();
+            serverSocket.Close();
         }
         private static bool ValidacijaIgara(string listaIgara)
         {
@@ -304,7 +339,35 @@ namespace Server
             //provera da li ima jos igraca za ovog klijenta
             if (igreKlijenta[klijent].Count == 0)
             {
-                klijent.Send(Encoding.UTF8.GetBytes($"\n\nSve igre završene. Ukupno poena: {poeni[klijent]}. Hvala na igri!"));
+                int poen = poeni[klijent];
+                string poruka = $"\n\nSve igre završene. Ukupno poena: {poen}.\n";
+
+                bool pobednik = true;
+
+                foreach(var drugi in poeni)
+                {
+                    if(drugi.Key != klijent)
+                    {
+                        if(drugi.Value > poen)
+                        {
+                            pobednik = false;
+                        }
+                        else if (drugi.Value == poen)
+                        {
+                            if(skockoPoeni.ContainsKey(drugi.Key) && skockoPoeni.ContainsKey(klijent))
+                            {
+                                if (skockoPoeni[drugi.Key] > skockoPoeni[klijent])
+                                {
+                                    pobednik = false;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                poruka += pobednik ? "Čestitamo! Vi ste pobednik igre! \n" : "Nažalost, niste pobedili ovaj put.\n";
+                poruka += "Hvala na igri!";
+                klijent.Send(Encoding.UTF8.GetBytes(poruka));
 
                 //ocistiti sve reference vezane za ovog klijenta
                 stanje.Remove(klijent);
