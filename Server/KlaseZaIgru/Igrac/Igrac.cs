@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace KlaseZaIgru.Igrac
         public int BrojIgraca { get; set; }
         public string Ime { get; set; }
         public int[] BrojPoenaPoIgrama { get; set; }
-
+     
         public Igrac(int brojIgraca, string ime, int brojIgara)
         {
             BrojIgraca = brojIgraca;

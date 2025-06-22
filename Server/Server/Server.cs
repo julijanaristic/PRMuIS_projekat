@@ -3,20 +3,37 @@ using KlaseZaIgru.KoZnaZna;
 using KlaseZaIgru.Skocko;
 using KlaseZaIgru.Slagalica;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Authentication.ExtendedProtection;
+using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 
 namespace Server
 {
     public class Server
     {
-        private static List<string> PrijavljeniIgraci = new List<string>();
+        private static Dictionary<Socket, string> stanje = new Dictionary<Socket, string>();
+        private static Dictionary<Socket, Queue<string>> igreKlijenta = new Dictionary<Socket, Queue<string>>();
+        private static Dictionary<Socket, int> poeni = new Dictionary<Socket, int>();
+        private static Dictionary<Socket, Slagalica> slagalice = new Dictionary<Socket, Slagalica>();   
+        private static Dictionary<Socket, Skocko> skockoIgre = new Dictionary<Socket, Skocko>();
+        private static Dictionary<Socket, KoZnaZna> kzzIgre = new Dictionary<Socket, KoZnaZna>();
+        private static Dictionary<Socket, int> pokusajiSkocko = new Dictionary<Socket, int>();
+        private static Dictionary<Socket, int> pitanjeKzz = new Dictionary<Socket, int>();
+        private static Dictionary<Socket, string> imena = new Dictionary<Socket, string>();
+        private static Dictionary<string, string[]> prijaveUDP = new Dictionary<string, string[]>();
 
         static void Main(string[] args)
         {
@@ -26,31 +43,36 @@ namespace Server
             //IPAddress.Any - Koristi se da se utičnica veže na sve dostupne mrežne interfejse
             //12345 - Broj porta na kojem utičnica osluškuje zahteve
             serverSocket.Bind(serverEP);
-            
 
             Console.WriteLine("Server pokrenut. Čekanje na prijave igrača preko UDP-a.");
 
+            TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.56.1"), 12346);
+            tcpListener.Start();
+
+            List<Socket> klijenti = new List<Socket>();
+            string imeIgraca;
+
             while (true)
             {
-                byte[] bafer = new byte[1024];
-                EndPoint klijentEP = new IPEndPoint(IPAddress.Any, 0);
-                try
+                if (serverSocket.Poll(0, SelectMode.SelectRead))
                 {
+                    byte[] bafer = new byte[1024];
+                    EndPoint klijentEP = new IPEndPoint(IPAddress.Any, 0);
                     int primljeniBajti = serverSocket.ReceiveFrom(bafer, ref klijentEP);
                     string primljenaPoruka = Encoding.UTF8.GetString(bafer, 0, primljeniBajti);
 
                     Console.WriteLine($"Primljena poruka: {primljenaPoruka}");
 
-                    if(primljenaPoruka.StartsWith("PRIJAVA: "))
+                    if (primljenaPoruka.StartsWith("PRIJAVA: "))
                     {
-                        string[] dijelovi = primljenaPoruka.Substring(9).Split(new char[] {','}, 2);
-                        if(dijelovi.Length == 2)
+                        string[] dijelovi = primljenaPoruka.Substring(9).Split(new char[] { ',' }, 2);
+                        if (dijelovi.Length == 2)
                         {
-                            string imeIgraca = dijelovi[0].Trim();
+                            imeIgraca = dijelovi[0].Trim();
                             string listaIgara = dijelovi[1].Trim();
 
                             int idIgraca = 0;
-                            string[] igre = listaIgara.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries).Select(igra => igra.Trim()).ToArray(); //ovde imam listu igara sta je igrac odabrao
+                            string[] igre = listaIgara.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(igra => igra.Trim()).ToArray(); //ovde imam listu igara sta je igrac odabrao
                             int brojIgara = igre.Length;
 
                             //Console.WriteLine($"{imeIgraca} je izbrao/la {brojIgara} igara.\n");
@@ -62,256 +84,209 @@ namespace Server
 
                             if (ValidacijaIgara(listaIgara))
                             {
+                                prijaveUDP[imeIgraca] = igre;
                                 Console.WriteLine($"Prijava uspešna\n\nIme igrača: {imeIgraca}\nLista igara: {listaIgara}\n");
 
-                                PrijavljeniIgraci.Add(imeIgraca);
-
-                                TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.56.1"), 12346);
-                                tcpListener.Start();
 
                                 Console.WriteLine($"Čekanje na TCP vezu za igrača {imeIgraca}");
-                                Socket tcpSocket = tcpListener.AcceptSocket();
-                                //TcpClient klijent = tcpListener.AcceptTcpClient(); //prihvati vezu kao TcpClient
-                                NetworkStream stream = new NetworkStream(tcpSocket);
-                                Console.WriteLine($"Usmerena TCP veza za {imeIgraca}");
-
-
-                                string dobrodoslicaPoruka = $"Dobrodošli u trening igru kviza TV Slagalica, današnji takmičar je {imeIgraca}.";
-                                if (PrijavljeniIgraci.Count() > 1)
-                                    dobrodoslicaPoruka = $"Dobrodošli u igru kviza TV Slagalica, današnji takmičari su {string.Join(", ", PrijavljeniIgraci)}.";
-
-                                byte[] dobrodoslicaBajti = Encoding.UTF8.GetBytes(dobrodoslicaPoruka);
-                                tcpSocket.Send(dobrodoslicaBajti);
-                                Console.WriteLine($"Poslata poruka dobrodošlice: {dobrodoslicaPoruka}");
-
-
-                                byte[] spremanBajti = new byte[1024];
-                                int primljeniSpremanBajti = tcpSocket.Receive(spremanBajti);
-                                string spremanPoruka = Encoding.UTF8.GetString(spremanBajti, 0, primljeniSpremanBajti);
-
-                                string spreman = "SPREMAN";
-                                if (spremanPoruka == spreman.ToLower() || spremanPoruka == spreman)
-                                {
-                                    Console.WriteLine($"Igrač {imeIgraca} je spreman za početak igre.");
-
-
-                                    int i = 0; //ovo sluzi za prolazak kroz listu igara koju je 
-
-                                    while (brojIgara > 0)
-                                    {
-                                        if (igre[i] == "sl") //SLAGALICA
-                                        {
-                                            string poruka = "\n------------------Pocinje igra SLAGALICA------------------\n\n";
-                                            Slagalica igra = new Slagalica();
-                                            poruka += igra.PonudjenaSlova + "\n";
-
-                                            //SALJE SE ISPIS KLIJENTU
-                                            byte[] bajtovi = Encoding.UTF8.GetBytes(poruka);
-                                            stream.Write(bajtovi, 0, bajtovi.Length);
-                                            Console.WriteLine($"\nPoslata slova klijentu: {igra.PonudjenaSlova}\n");
-
-                                            //PRONADJENA REC OD KLIJENTA
-                                            byte[] bajtoviPrimljenaRec = new byte[1024];
-                                            int bajtoviZaCitanjePrimljenaRec = stream.Read(bajtoviPrimljenaRec, 0, bajtoviPrimljenaRec.Length);
-                                            string primljenaRec = Encoding.UTF8.GetString(bajtoviPrimljenaRec, 0, bajtoviZaCitanjePrimljenaRec);
-
-                                            Console.WriteLine($"\nPrimljena rec od klijenta: {primljenaRec}. Proveravanje u toku...\n");
-
-                                            //PROVERA PRONADJENE RECI
-                                            igra.SastavljenaRec = primljenaRec;
-                                            int brojPoena = igra.ProveriRec();
-                                            Console.WriteLine($"Broj poena igraca za pronadjenu reč: {brojPoena}");
-
-                                            //prvo u poenima uvek bude slagalica, pa skocko, pa ko zna zna
-                                            igrac.BrojPoenaPoIgrama[i] = brojPoena; //ovde sad ne znam kako treba dodeliti
-                                            Console.WriteLine(igrac.ToString());
-
-                                            //SALJE SE BROJ POENA KLIJENTU
-                                            //string brojPoenaString = brojPoena.ToString();
-                                            string porukaZaIspisPoenaKlijentu = $"\nOsvojili ste {brojPoena} poena za unetu rec.\n";
-                                            byte[] bajtoviZaIspisPoena = Encoding.UTF8.GetBytes(porukaZaIspisPoenaKlijentu);
-                                            stream.Write(bajtoviZaIspisPoena, 0, bajtoviZaIspisPoena.Length);
-
-                                            Console.WriteLine("\nKRAJ IGRE SLAGALICA\n");
-                                        }
-                                        else if (igre[i] == "sk") //SKOCKO
-                                        {
-
-                                            string poruka = "\n---------------------Pocinje igra SKOCKO---------------------\n";
-                                            poruka += "H - herc, T - tref, P - pik, K - karo, S - skocko, Z - zvezda\n";
-                                            Skocko skocko = new Skocko();
-                                            string TrazenaKomb = skocko.TrazenaKombinacija;
-
-                                            Console.WriteLine("\nPocinje igra SKOCKO\n");
-                                            Console.WriteLine($"Trazena kombinacija: {TrazenaKomb}\n");
-
-                                            //SALJE SE ISPIS KLIJENTU
-                                            byte[] bajtoviZaTrazenuKombinaciju = Encoding.UTF8.GetBytes(poruka);
-                                            stream.Write(bajtoviZaTrazenuKombinaciju, 0, bajtoviZaTrazenuKombinaciju.Length);
-
-                                            int brojPoena = 30;
-                                            int greska = 0;
-
-                                            string porukaZaIspisPogodjenihZnakova = "";
-
-                                            for (int k = 1; k < 7; k++)
-                                            {
-                                                //PRIMANJE ODGOVORA ZA TEKUCU KOMBINACIJU
-                                                byte[] bajtoviZaTekucuKombinaciju = new byte[1024];
-                                                int bajtoviZaTekKomb = stream.Read(bajtoviZaTekucuKombinaciju, 0, bajtoviZaTekucuKombinaciju.Length);
-                                                string TekKombinacija = Encoding.UTF8.GetString(bajtoviZaTekucuKombinaciju, 0, bajtoviZaTekKomb).Trim();
-                                                //Trim() da uklonimo nevidljive karaktere
-
-                                                string TekKombinacijaCAPS = TekKombinacija.ToUpper();
-
-                                                Console.WriteLine($"\nPrimljena kombinacija od klijenta: '{TekKombinacijaCAPS}', Pokusaj: {k}. Proveravanje u toku...\n");
-                                                
-                                                //PROVERA VALIDNOSTI UNOSA
-                                                string dozvoljenaSlova = "HTPKSZ";
-
-                                                if(!string.IsNullOrEmpty(TekKombinacijaCAPS) && TekKombinacijaCAPS.All(c => dozvoljenaSlova.Contains(c)))
-                                                {
-                                                    //PROVERAVANJE KOMBINACIJE
-                                                    Console.WriteLine($"Klijent je poslao validan odgovor: {TekKombinacijaCAPS}");
-                                                    porukaZaIspisPogodjenihZnakova = skocko.ProveriKombinaciju(TekKombinacijaCAPS);
-                                                
-                                                    //SALJE SE KLIJENTU POVRATNA PORUKA SA PROVERE
-                                                    byte[] bajtoviSaProvere = Encoding.UTF8.GetBytes(porukaZaIspisPogodjenihZnakova);
-                                                    stream.Write(bajtoviSaProvere, 0, bajtoviSaProvere.Length);
-                                                
-                                                    if (porukaZaIspisPogodjenihZnakova == "\nCestitam, pogodili ste kombinaciju!\n")
-                                                    {
-                                                        if (k == 5 || k == 6)
-                                                        {
-                                                            brojPoena = 10;
-                                                        }
-                                                        else
-                                                        {
-                                                            brojPoena -= greska;
-                                                        }
-                                                        Console.WriteLine("Igrac je pogogio kombinaciju!\nKRAJ IGRE SKOCKO\n");
-                                                        break;
-                                                    }
-                                                    else
-                                                    {
-                                                        greska += 5;
-                                                    }
-
-                                                } else
-                                                {
-                                                    Console.WriteLine("Neispravan unos od klijenta. Odbijeno.\n");
-                                                    porukaZaIspisPogodjenihZnakova = "Neispravan unos. Dozvoljena su samo slova: H, T, P, K, S, Z\n";
-                                                    byte[] bajtoviSaProvere = Encoding.UTF8.GetBytes(porukaZaIspisPogodjenihZnakova);
-                                                    stream.Write(bajtoviSaProvere, 0, bajtoviSaProvere.Length);
-                                                    k--; //ne brojimo nevalidan pokusaj
-                                                }
-                                            }
-                                            
-                                            //znaci kad se izvrtela for petlja, 6 pokusaja, i ako na kraju ne stoji u poruci da je pogodio igrac kombinaciju,
-                                            //to znaci da nije uspeo pogoditi tokom 6 pokusaja, dobija 0 poena;
-                                            if(porukaZaIspisPogodjenihZnakova != "\nCestitam, pogodili ste kombinaciju!\n")
-                                            {
-                                                brojPoena = 0;
-                                            }
-
-                                            //SALJE SE BROJ POENA KLIJENTU
-                                            string brojPoenaString = $"\nOsvojili ste {brojPoena} poena za unetu rec.\n";
-                                            //Console.WriteLine(brojPoenaString);
-                                            byte[] bajtiZaPoeneKlijentu = Encoding.UTF8.GetBytes(brojPoenaString);
-                                            stream.Write(bajtiZaPoeneKlijentu, 0, bajtiZaPoeneKlijentu.Length);
-
-                                            igrac.BrojPoenaPoIgrama[i] = brojPoena;
-                                            Console.WriteLine(igrac.ToString());
-
-                                        }
-                                        else if (igre[i] == "kzz") //KO ZNA ZNA
-                                        {
-                                            Console.WriteLine("\nPocinje igra KO ZNA ZNA\n");
-
-                                            string poruka = "\n---------------------Pocinje igra KO ZNA ZNA---------------------\n";
-                                            KoZnaZna koZnaZna = new KoZnaZna();
-                                            int ukupniPoeni = 0;
-
-                                            //SLANJE ISPISA KLIJENTU
-                                            byte[] ispis = Encoding.UTF8.GetBytes(poruka);
-                                            stream.Write(ispis, 0, ispis.Length);
-
-
-                                            for(int k = 0; k < 5; k++)
-                                            {
-                                                //SLANJE PITANJA KLIJENTU
-                                                string pitanej = koZnaZna.PostaviSledecePitanje();
-                                                byte[] pitanjeBajti = Encoding.UTF8.GetBytes(pitanej);
-                                                stream.Write(pitanjeBajti, 0, pitanjeBajti.Length);
-
-                                                //PRIMANJE ODGOVORA OD KLIJENTA
-                                                byte[] bajtiOdgovora = new byte[1024];
-                                                int bajtiOdgovoraKlijenta = stream.Read(bajtiOdgovora, 0, bajtiOdgovora.Length);
-                                                string odgovor = Encoding.UTF8.GetString(bajtiOdgovora, 0, bajtiOdgovoraKlijenta);
-                                                int brojOdgovora = int.Parse(odgovor);
-
-                                                //PROVERA ODGOVORA 
-                                                int osvojeniPoen = koZnaZna.ProveriOdgovor(brojOdgovora);
-                                             
-                                                //SALJE SE KLIJENTU PORUKA O TACNOSTI ODGOVORA NA PITANJE
-                                                string porukaZaUspesanOdgovor = $"Vas odgovor je {(osvojeniPoen == 10 ? "tacan" : "netacan")}.\n";
-                                                if (porukaZaUspesanOdgovor.Contains("netacan"))
-                                                {
-                                                    porukaZaUspesanOdgovor += $"Tacan odgovor je: {koZnaZna.TacanOdgovor}\n";
-                                                }
-                                                byte[] bajtoviZaTacanOdg = Encoding.UTF8.GetBytes(porukaZaUspesanOdgovor);
-                                                stream.Write(bajtoviZaTacanOdg, 0, bajtoviZaTacanOdg.Length);
-                                               
-                                                ukupniPoeni += osvojeniPoen;
-                                            }
-
-                                            ukupniPoeni = (ukupniPoeni < 0 ? 0 : ukupniPoeni);
-                                            igrac.BrojPoenaPoIgrama[i] = ukupniPoeni;
-                                            Console.WriteLine(igrac.Ime + $" je osvojio {ukupniPoeni} poena.");
-                                            Console.WriteLine(igrac.ToString());
-
-                                            //SLANJE BROJ POENA IGRACU
-                                            string brojPoena = ukupniPoeni.ToString();
-                                            byte[] poeni = Encoding.UTF8.GetBytes(brojPoena);
-                                            stream.Write(poeni, 0, poeni.Length);
-
-                                        }
-
-                                        brojIgara--;
-                                        i++;
-
-                                    }
-                                    
-                                } 
-                                
-                                tcpSocket.Close();
-                                tcpListener.Stop();
+                                serverSocket.SendTo(Encoding.UTF8.GetBytes("UDP_OK"), klijentEP);
 
                             }
                             else
                             {
                                 Console.WriteLine("Nevalidna lista igara.");
+                                serverSocket.SendTo(Encoding.UTF8.GetBytes("UDP_INVALID_GAMES"), klijentEP);
+
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("Nepravilno formatirana prijava.");
-                        }
-
-
                     }
                 }
-                catch (SocketException ex)
+
+                //TCP konekcija
+                if (tcpListener.Pending())
                 {
-                    Console.WriteLine($"Greška prilikom prijema podataka na serveru: {ex.Message}");
-                    break;
+                    Socket noviSocket = tcpListener.AcceptSocket();
+                    noviSocket.Blocking = false;
+                    klijenti.Add(noviSocket);
+                    stanje[noviSocket] = "ime";
+                    Console.WriteLine($"Povezao se novi klijent putem TCP-a: {noviSocket.RemoteEndPoint}");
                 }
 
+                //obrada postojecih tcp konekcija
+                foreach (Socket klijent in klijenti.ToList())
+                {
+                    try
+                    {
+                        if(klijent.Poll(1000, SelectMode.SelectRead))
+                        {
+                            byte[] buffer = new byte[1024];
+                            int bytes = klijent.Receive(buffer);
+
+                            if(bytes == 0)
+                            {
+                                klijenti.Remove(klijent);
+                                Console.WriteLine("Klijent se odvezao.");
+                                klijent.Close();
+                                continue; //idi na sledeceg klijenta u petlji
+                            }
+
+                            string poruka = Encoding.UTF8.GetString(buffer, 0, bytes).Trim();
+                            string stanjeKlijenta = stanje[klijent];
+
+                            if(stanjeKlijenta == "ime")
+                            {
+                                if (prijaveUDP.ContainsKey(poruka))
+                                {
+                                    stanje[klijent] = "pocetak";
+                                    igreKlijenta[klijent] = new Queue<string>(prijaveUDP[poruka]);
+                                    poeni[klijent] = 0;
+                                    imena[klijent] = poruka;
+                                    klijent.Send(Encoding.UTF8.GetBytes($"Dobrodošli u trening igru kviza TV Slagalica, današnji takmičar je {poruka}. Ako ste spremni, unesite poruku 'SPREMAN': "));
+                                } else
+                                {
+                                    klijent.Send(Encoding.UTF8.GetBytes("Ime nije pronadjeno u UDP prijavama."));
+                                    klijent.Close();
+                                    klijenti.Remove(klijent);
+                                    continue;
+                                }
+                            } else if(stanjeKlijenta == "pocetak")
+                            {
+                                if(poruka.ToLower() == "spreman")
+                                {
+                                    ZapocniSledecuIgru(klijent);
+
+                                    // Provera da li je klijent zatvoren unutar ZapocniSledecuIgru (ako nema više igara)
+                                    // Ako je metoda ZapocniSledecuIgru detektovala kraj, onda više neće biti u mapama.
+                                    if (!stanje.ContainsKey(klijent))
+                                    {
+                                        klijent.Close();
+                                        klijenti.Remove(klijent);
+                                        continue;
+                                    }
+
+                                } else
+                                {
+                                    klijent.Send(Encoding.UTF8.GetBytes("Molimo unesite 'SPREMAN' da biste počeli prvu igru."));
+                                }
+                            } else if(stanjeKlijenta == "sl")
+                            {
+                                Slagalica igra = slagalice[klijent];
+                                igra.SastavljenaRec = poruka;
+                                int p = igra.ProveriRec();
+                                poeni[klijent] += p;
+                                igreKlijenta[klijent].Dequeue(); //ukloni igru sl iz reda
+
+                                klijent.Send(Encoding.UTF8.GetBytes($"Poeni za reč: {p}. Ukupno: {poeni[klijent]}. Prelaženje na sledeću igru..."));
+                                ZapocniSledecuIgru(klijent);
+
+                                if (!stanje.ContainsKey(klijent))
+                                {
+                                    klijent.Close();
+                                    klijenti.Remove(klijent);
+                                    continue;
+                                }
+
+                            }
+                            else if(stanjeKlijenta == "sk")
+                            {
+                                Skocko igra = skockoIgre[klijent];
+                                string rez = igra.ProveriKombinaciju(poruka.ToUpper());
+                                pokusajiSkocko[klijent]++;
+                                klijent.Send(Encoding.UTF8.GetBytes(rez));
+
+                                if (rez.Contains("Cestitam") || pokusajiSkocko[klijent] >= 6)
+                                {
+                                    int bodovi = rez.Contains("Cestitam") ? 10 : 0;
+                                    poeni[klijent] += bodovi;
+                                    igreKlijenta[klijent].Dequeue(); //ukloni igru sk iz reda
+
+                                    klijent.Send(Encoding.UTF8.GetBytes($"Kraj igre Skocko. Poeni za Skocko: {bodovi}. Ukupno: {poeni[klijent]}. Prelaženje na sledeću igru..."));
+                                    ZapocniSledecuIgru(klijent);
+
+                                    if (!stanje.ContainsKey(klijent))
+                                    {
+                                        klijent.Close();
+                                        klijenti.Remove(klijent);
+                                        continue;
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    klijent.Send(Encoding.UTF8.GetBytes($"Pokusaj {pokusajiSkocko[klijent]++}/6. Unesi 4 znaka (H, T, P, K, S, Z):"));
+                                }
+
+                            } else if(stanjeKlijenta == "kzz")
+                            {
+                                if (int.TryParse(poruka, out int odg) && odg >= 1 && odg <= 3)
+                                {
+                                    KoZnaZna igra = kzzIgre[klijent];
+                                    int poen = igra.ProveriOdgovor(odg);
+                                    poeni[klijent] += poen;
+                                    pitanjeKzz[klijent]++;
+
+                                    if (pitanjeKzz[klijent] < 5)
+                                    {
+                                        if(poen == -5)
+                                        {
+                                            klijent.Send(Encoding.UTF8.GetBytes($"Poen: {poen}. Tacan odgovor je: {kzzIgre[klijent].TacanOdgovor}\n\nSledece pitanje:{igra.PostaviSledecePitanje()}"));
+                                        }
+                                        else
+                                        {
+
+                                            klijent.Send(Encoding.UTF8.GetBytes($"Poen: {poen}.\n\nSledece pitanje:{igra.PostaviSledecePitanje()}"));
+                                        }
+
+                                    }
+                                    else //kraj igre kzz
+                                    {
+                                        igreKlijenta[klijent].Dequeue(); //ukloni igru kzz iz reda
+
+                                        if(poen == -5)
+                                        {
+                                            klijent.Send(Encoding.UTF8.GetBytes($"Poen: {poen}. Tacan odgovor je: {kzzIgre[klijent].TacanOdgovor}\n\nKraj igre KO ZNA ZNA. Ukupno: {poeni[klijent]}. Prelaženje na sledeću igru..."));
+
+                                        }else
+                                        {
+                                            klijent.Send(Encoding.UTF8.GetBytes($"Poen: {poen}.\n\nKraj igre KO ZNA ZNA. Ukupno: {poeni[klijent]}. Prelaženje na sledeću igru..."));
+
+                                        }
+                                        ZapocniSledecuIgru(klijent);
+
+                                        if (!stanje.ContainsKey(klijent))
+                                        {
+                                            klijent.Close();
+                                            klijenti.Remove(klijent);
+                                            continue;
+                                        }
+                                    }
+                                } else
+                                {
+                                    klijent.Send(Encoding.UTF8.GetBytes("Neispravan unos. Unesi broj 1-3."));
+                                }
+                            } 
+                        }
+                    } catch (SocketException)
+                    {
+                        stanje.Remove(klijent);
+                        igreKlijenta.Remove(klijent);
+                        poeni.Remove(klijent);
+                        slagalice.Remove(klijent);
+                        skockoIgre.Remove(klijent);
+                        kzzIgre.Remove(klijent);
+                        pokusajiSkocko.Remove(klijent);
+                        pitanjeKzz.Remove(klijent);
+                        imena.Remove(klijent);
+                        klijent.Close();
+                        klijenti.Remove(klijent);
+                        break;
+                    }
+                }
             }
-
-            serverSocket.Close(); //zatvara se uticnica, oslobadjaju se resursi, za ovo da bi se izvrsilo, treba dodati break u while petlju, inace nece nikad da se izvrsi
+                Console.WriteLine("Server zavrsava sa radom");
+                Console.ReadKey();
+                serverSocket.Close();
         }
-
         private static bool ValidacijaIgara(string listaIgara)
         {
             string[] validneIgre = { "sl", "sk", "kzz" };
@@ -323,5 +298,58 @@ namespace Server
             }
             return true;
         }
+
+        private static void ZapocniSledecuIgru(Socket klijent)
+        {
+            //provera da li ima jos igraca za ovog klijenta
+            if (igreKlijenta[klijent].Count == 0)
+            {
+                klijent.Send(Encoding.UTF8.GetBytes($"\n\nSve igre završene. Ukupno poena: {poeni[klijent]}. Hvala na igri!"));
+
+                //ocistiti sve reference vezane za ovog klijenta
+                stanje.Remove(klijent);
+                igreKlijenta.Remove(klijent);
+                poeni.Remove(klijent);
+                slagalice.Remove(klijent);
+                skockoIgre.Remove(klijent);
+                kzzIgre.Remove(klijent);
+                pokusajiSkocko.Remove(klijent);
+                pitanjeKzz.Remove(klijent);
+                imena.Remove(klijent);
+
+                return;
+            }
+
+            string sledecaIgra = igreKlijenta[klijent].Peek().ToString();
+
+            if(sledecaIgra == "sl")
+            {
+                Slagalica sl = new Slagalica();
+                slagalice[klijent] = sl;
+                stanje[klijent] = "sl";
+                klijent.Send(Encoding.UTF8.GetBytes($"\n------------------Pocinje igra SLAGALICA------------------\n\nSlova: {sl.PonudjenaSlova} \nUnesite reč:"));
+            
+            } else if(sledecaIgra == "sk")
+            {
+                Skocko sk = new Skocko();
+                skockoIgre[klijent] = sk;
+                pokusajiSkocko[klijent] = 0; 
+                stanje[klijent] = "sk";
+                klijent.Send(Encoding.UTF8.GetBytes($"\n---------------------Pocinje igra SKOCKO---------------------\nUnesi 4 znaka (H, T, P, K, S, Z):"));
+            
+            } else if(sledecaIgra == "kzz")
+            {
+                KoZnaZna kzz = new KoZnaZna();
+                kzzIgre[klijent] = kzz;
+                pitanjeKzz[klijent] = 0; // Resetuj brojač pitanja za KZZ
+                stanje[klijent] = "kzz";
+                klijent.Send(Encoding.UTF8.GetBytes($"\n---------------------Pocinje igra KO ZNA ZNA---------------------\nImate 5 pitanja ukupno, izaberite tacan odgovor na svako pitanje.\n{kzz.PostaviSledecePitanje()}"));
+            
+            } else
+            {
+                klijent.Send(Encoding.UTF8.GetBytes("Server Greška: Nepoznata igra u redu za klijenta. Prekidam vezu."));
+            }
+        }
     }
 }
+
