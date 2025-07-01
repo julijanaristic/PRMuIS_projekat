@@ -1,0 +1,8 @@
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\bin\Debug\PokretanjeViseKlijenta.exe.config
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\bin\Debug\PokretanjeViseKlijenta.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\bin\Debug\PokretanjeViseKlijenta.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\obj\Debug\PokretanjeViseKlijenta.csproj.AssemblyReference.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\obj\Debug\PokretanjeViseKlijenta.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\obj\Debug\PokretanjeViseKlijenta.exe
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\obj\Debug\PokretanjeViseKlijenta.pdb
+C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\PokretanjeViseKlijenta\obj\Debug\PokretanjeViseKlijenta.exe.config

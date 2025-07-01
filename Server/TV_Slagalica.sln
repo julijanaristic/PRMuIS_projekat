@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klijent", "..\Klijent\Klije
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlaseZaIgru", "KlaseZaIgru\KlaseZaIgru.csproj", "{73E221FE-99BC-4C6D-B81D-2D499049844C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokretanjeViseKlijenta", "..\PokretanjeViseKlijenta\PokretanjeViseKlijenta.csproj", "{03995612-D744-457A-886B-DC6C8CF7C655}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E221FE-99BC-4C6D-B81D-2D499049844C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03995612-D744-457A-886B-DC6C8CF7C655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03995612-D744-457A-886B-DC6C8CF7C655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03995612-D744-457A-886B-DC6C8CF7C655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03995612-D744-457A-886B-DC6C8CF7C655}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

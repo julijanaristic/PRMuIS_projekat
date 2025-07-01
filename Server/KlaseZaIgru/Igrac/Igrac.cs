@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KlaseZaIgru.Igrac
+﻿namespace KlaseZaIgru.Igrac
 {
     public class Igrac
     {
         public int BrojIgraca { get; set; }
         public string Ime { get; set; }
         public int[] BrojPoenaPoIgrama { get; set; }
-     
+
         public Igrac(int brojIgraca, string ime, int brojIgara)
         {
             BrojIgraca = brojIgraca;
@@ -24,9 +17,9 @@ namespace KlaseZaIgru.Igrac
         {
             string igrac = $"\nBroj igraca: {BrojIgraca}\nIme: {Ime}\nBroj poena: ";
 
-            foreach(var p in BrojPoenaPoIgrama)
+            foreach (var p in BrojPoenaPoIgrama)
             {
-                igrac +=  p + " ";
+                igrac += p + " ";
             }
 
             return igrac;

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KlaseZaIgru.Skocko
 {
@@ -12,28 +6,33 @@ namespace KlaseZaIgru.Skocko
     {
         //H - herc, T - tref, P - pik, K - karo, S - skocko, Z - zvezda
         private Random Random = new Random();
-        private static char[] Znakovi = { 'H', 'T', 'P', 'K', 'S', 'Z'};
+        private static char[] Znakovi = { 'H', 'T', 'P', 'K', 'S', 'Z' };
 
-        public string TrazenaKombinacija {  get; set; } //sadrzi 4 slova
+        public string TrazenaKombinacija { get; set; } //sadrzi 4 slova
         public string TekucaKombinacija { get; set; }
 
-        public Skocko() 
+        public Skocko()
         {
             GenerisiKombinaciju();
         }
 
+        public Skocko(string generisanaKombinacija)
+        {
+            TrazenaKombinacija = generisanaKombinacija;
+        }
+
         public void GenerisiKombinaciju()
         {
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                if(i == 3) //ako je to zadnji karakter 
+                if (i == 3) //ako je to zadnji karakter 
                 {
                     char[] karakteri = TrazenaKombinacija.ToCharArray();
                     char prviKarakter = karakteri[0];
                     int ponavljanje = 0;
-                    foreach(var p in karakteri)
+                    foreach (var p in karakteri)
                     {
-                        if(p == prviKarakter)
+                        if (p == prviKarakter)
                         {
                             ++ponavljanje;
                         }
@@ -56,7 +55,8 @@ namespace KlaseZaIgru.Skocko
                     {
                         TrazenaKombinacija += Znakovi[Random.Next(Znakovi.Length)];
                     }
-                } else
+                }
+                else
                 {
                     TrazenaKombinacija += Znakovi[Random.Next(Znakovi.Length)];
                 }
@@ -76,7 +76,7 @@ namespace KlaseZaIgru.Skocko
             int znakoviNaPogresnomMestu = 0;
 
             //prvo prolazimo i trazimo znakove na tacnom mestu
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (znakoviOdKlijenta[i] == znakoviOdServera[i])
                 {
@@ -87,13 +87,13 @@ namespace KlaseZaIgru.Skocko
             }
 
             //sada trazimo znakove koji su deo kombinacije ali nisu na pravom mestu
-            for(int i = 0; i < 4; i++) // i prolazi kroz  tekucuKombinaciju
+            for (int i = 0; i < 4; i++) // i prolazi kroz  tekucuKombinaciju
             {
                 if (!pogodjeniNaMestu[i]) //znaci gleda ta mesta gde jos nije pogodjeno slovo
                 {
-                    for(int j = 0; j < 4; j++) // j prolazi kroz trazenuKombinaciju
+                    for (int j = 0; j < 4; j++) // j prolazi kroz trazenuKombinaciju
                     {
-                        if (!iskorisceni[j] && znakoviOdKlijenta[i] == znakoviOdServera[j]) 
+                        if (!iskorisceni[j] && znakoviOdKlijenta[i] == znakoviOdServera[j])
                         {
                             znakoviNaPogresnomMestu++;
                             iskorisceni[j] = true;
@@ -103,21 +103,21 @@ namespace KlaseZaIgru.Skocko
                 }
             }
 
-            if(znakoviNaOdgovarajucemMestu == 4)
+            if (znakoviNaOdgovarajucemMestu == 4)
             {
                 return "\nCestitam, pogodili ste kombinaciju!\n";
             }
 
             string poruka = "";
 
-            if(znakoviNaOdgovarajucemMestu > 0)
+            if (znakoviNaOdgovarajucemMestu > 0)
             {
                 poruka += $"{znakoviNaOdgovarajucemMestu} {(znakoviNaOdgovarajucemMestu == 1 ? "znak je" : "znaka su")} na mestu";
             }
 
-            if(znakoviNaPogresnomMestu > 0)
+            if (znakoviNaPogresnomMestu > 0)
             {
-                if(!string.IsNullOrEmpty(poruka))
+                if (!string.IsNullOrEmpty(poruka))
                 {
                     poruka += " i ";
                 }

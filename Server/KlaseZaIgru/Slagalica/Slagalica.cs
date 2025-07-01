@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KlaseZaIgru.Slagalica
 {
@@ -18,6 +16,11 @@ namespace KlaseZaIgru.Slagalica
         public Slagalica()
         {
             GenerisiSlova();
+        }
+
+        public Slagalica(string generisanaSlova)
+        {
+            PonudjenaSlova = generisanaSlova;
         }
 
         public void GenerisiSlova()
@@ -50,9 +53,9 @@ namespace KlaseZaIgru.Slagalica
 
             List<string> recSlova = new List<string>();
             int i = 0;
-            while(i < SastavljenaRec.Length)
+            while (i < SastavljenaRec.Length)
             {
-                if(i < SastavljenaRec.Length - 1)
+                if (i < SastavljenaRec.Length - 1)
                 {
                     string dvostrukoSlovo = SastavljenaRec.Substring(i, 2); //uzima se dva uzastopna karaktera, ako i nije poslednji karakter
                     //pokušava da se uzme rec[i] i rec[i+1] kao jedno dvostruko slovo

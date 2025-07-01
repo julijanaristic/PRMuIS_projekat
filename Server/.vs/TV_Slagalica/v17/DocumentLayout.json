@@ -1,33 +1,39 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\",
+  "WorkspaceRootPath": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|c:\\users\\korisnik\\documents\\github\\prmuis_projekat\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B54D61EA-83D4-41CF-9B18-D014BD2441EE}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94CE7615-C7C1-4727-98A5-D1C580214E7F}|..\\Klijent\\Klijent.csproj|c:\\users\\korisnik\\documents\\github\\prmuis_projekat\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{94CE7615-C7C1-4727-98A5-D1C580214E7F}|..\\Klijent\\Klijent.csproj|c:\\users\\korisnik\\onedrive\\desktop\\prmuis_projekat2\\klijent\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|c:\\users\\korisnik\\documents\\github\\prmuis_projekat\\server\\klasezaigru\\rezultati\\rezultatigraca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{03995612-D744-457A-886B-DC6C8CF7C655}|..\\PokretanjeViseKlijenta\\PokretanjeViseKlijenta.csproj|c:\\users\\korisnik\\onedrive\\desktop\\prmuis_projekat2\\pokretanjeviseklijenta\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03995612-D744-457A-886B-DC6C8CF7C655}|..\\PokretanjeViseKlijenta\\PokretanjeViseKlijenta.csproj|c:\\users\\korisnik\\onedrive\\desktop\\prmuis_projekat2\\pokretanjeviseklijenta\\pokretanje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\rezultati\\rezultatigraca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\rezultati\\rezultatigraca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\klasezaigru\\skocko\\skocko.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\skocko\\skocko.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\skocko\\skocko.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\klasezaigru\\slagalica\\slagalica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\koznazna\\koznazna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\slagalica\\slagalica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\slagalica\\slagalica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E221FE-99BC-4C6D-B81D-2D499049844C}|KlaseZaIgru\\KlaseZaIgru.csproj|solutionrelative:klasezaigru\\igrac\\igrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,98 +43,120 @@
       "DocumentGroups": [
         {
           "DockedWidth": 182,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KoZnaZna.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
-              "RelativeDocumentMoniker": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
-              "RelativeToolTip": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA3wDwAAAAPAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\PokretanjeViseKlijenta\\Program.cs",
+              "RelativeDocumentMoniker": "..\\PokretanjeViseKlijenta\\Program.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\PokretanjeViseKlijenta\\Program.cs",
+              "RelativeToolTip": "..\\PokretanjeViseKlijenta\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T13:01:17.364Z",
+              "WhenOpened": "2025-07-01T15:17:07.951Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pokretanje.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\PokretanjeViseKlijenta\\Pokretanje.cs",
+              "RelativeDocumentMoniker": "..\\PokretanjeViseKlijenta\\Pokretanje.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\PokretanjeViseKlijenta\\Pokretanje.cs",
+              "RelativeToolTip": "..\\PokretanjeViseKlijenta\\Pokretanje.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T15:17:42.312Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Klijent.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Klijent\\Klijent.cs",
+              "RelativeDocumentMoniker": "..\\Klijent\\Klijent.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Klijent\\Klijent.cs",
+              "RelativeToolTip": "..\\Klijent\\Klijent.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAQwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T07:58:30.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Server.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\Server\\Server.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\Server\\Server.cs",
               "RelativeDocumentMoniker": "Server\\Server.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\Server\\Server.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\Server\\Server.cs",
               "RelativeToolTip": "Server\\Server.cs",
-              "ViewState": "AgIAAOUAAAAAAAAAAAAQwPcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAH4BAAAAAAAAAAAYwIsBAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T16:59:53.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Klijent.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Klijent\\Klijent.cs",
-              "RelativeDocumentMoniker": "..\\Klijent\\Klijent.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Klijent\\Klijent.cs",
-              "RelativeToolTip": "..\\Klijent\\Klijent.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAQwFUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "KoZnaZna.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
+              "RelativeDocumentMoniker": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
+              "RelativeToolTip": "KlaseZaIgru\\KoZnaZna\\KoZnaZna.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAuwDIAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T11:54:39.528Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RezultatIgraca.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
-              "RelativeDocumentMoniker": "KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
-              "RelativeToolTip": "KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T11:58:26.075Z",
+              "WhenOpened": "2025-03-04T13:01:17.364Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Igrac.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Igrac\\Igrac.cs",
-              "RelativeDocumentMoniker": "KlaseZaIgru\\Igrac\\Igrac.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Igrac\\Igrac.cs",
-              "RelativeToolTip": "KlaseZaIgru\\Igrac\\Igrac.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAUAAAAAAAAAA==",
+              "Title": "RezultatIgraca.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
+              "RelativeDocumentMoniker": "KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
+              "RelativeToolTip": "KlaseZaIgru\\Rezultati\\RezultatIgraca.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T15:44:10.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T11:58:26.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Igrac.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Igrac\\Igrac.cs",
+              "RelativeDocumentMoniker": "KlaseZaIgru\\Igrac\\Igrac.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Igrac\\Igrac.cs",
+              "RelativeToolTip": "KlaseZaIgru\\Igrac\\Igrac.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T15:44:10.203Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Skocko.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Skocko\\Skocko.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Skocko\\Skocko.cs",
               "RelativeDocumentMoniker": "KlaseZaIgru\\Skocko\\Skocko.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Skocko\\Skocko.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Skocko\\Skocko.cs",
               "RelativeToolTip": "KlaseZaIgru\\Skocko\\Skocko.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAH8AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T19:27:55.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T19:27:55.476Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Slagalica.cs",
-              "DocumentMoniker": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
               "RelativeDocumentMoniker": "KlaseZaIgru\\Slagalica\\Slagalica.cs",
-              "ToolTip": "C:\\Users\\KorisniK\\Documents\\GitHub\\PRMuIS_projekat\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\OneDrive\\Desktop\\PRMuIS_projekat2\\Server\\KlaseZaIgru\\Slagalica\\Slagalica.cs",
               "RelativeToolTip": "KlaseZaIgru\\Slagalica\\Slagalica.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T18:50:39.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-12T18:50:39.512Z"
             }
           ]
         }

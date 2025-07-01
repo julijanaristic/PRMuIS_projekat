@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KlaseZaIgru.KoZnaZna
 {
     public class KoZnaZna
     {
         public string TekucePitanje { get; private set; }
-        public int TacanOdgovor {  get; private set; } //broj opcije koja predstavlja tacan odgovor
-        
-        private Dictionary<string, int> SvaPitanja { get; set; } = new Dictionary<string, int>();
+        public int TacanOdgovor { get; private set; } //broj opcije koja predstavlja tacan odgovor
 
-        private List<string> PitanjaLista = new List<string>();
-        private int TrenutnoPitanje = 0;
+        public Dictionary<string, int> SvaPitanja { get; set; } = new Dictionary<string, int>();
+
+        public List<string> PitanjaLista { get; set; } = new List<string>();
+        //private int TrenutnoPitanje = 0;
         public KoZnaZna()
         {
             UcitavajPitanja("pitanja.txt");
+        }
+
+        public KoZnaZna(List<string> vecGenerisanaPitanja, Dictionary<string, int> svaPitanja)
+        {
+            PitanjaLista = vecGenerisanaPitanja;
+            SvaPitanja = svaPitanja;
         }
 
         //PITANJA SU U FORMATU
@@ -31,10 +35,10 @@ namespace KlaseZaIgru.KoZnaZna
                 return;
             }
             string[] linije = File.ReadAllLines(putanjaDoFajla);
-            foreach(string linija in linije)
+            foreach (string linija in linije)
             {
                 string[] delovi = linija.Split(';');
-                
+
                 if (delovi.Length == 5 && int.TryParse(delovi[4].Trim(), out int tacan))
                 {
                     string pitanje = $"{delovi[0]}\n{delovi[1]}\n{delovi[2]}\n{delovi[3]}";
@@ -42,6 +46,9 @@ namespace KlaseZaIgru.KoZnaZna
                     PitanjaLista.Add(pitanje);
                 }
             }
+
+            Random random = new Random();
+            PitanjaLista = PitanjaLista.OrderBy(x => random.Next()).ToList();
         }
 
         public int ProveriOdgovor(int odgovor)
@@ -52,17 +59,8 @@ namespace KlaseZaIgru.KoZnaZna
 
         public string PostaviSledecePitanje()
         {
-            //if(TrenutnoPitanje < PitanjaLista.Count)
-            //{
-            //    TekucePitanje = PitanjaLista[TrenutnoPitanje];
-            //    TacanOdgovor = SvaPitanja[TekucePitanje];
-            //    TrenutnoPitanje++;
-            //    return TekucePitanje;
-            //}
 
-            //return "Kviz je zavrsen!";
-
-            if(PitanjaLista.Count == 0)
+            if (PitanjaLista.Count == 0)
             {
                 return "Kviz je zavrsen!";
             }

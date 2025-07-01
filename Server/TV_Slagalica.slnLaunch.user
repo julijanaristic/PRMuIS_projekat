@@ -1,0 +1,28 @@
+[
+  {
+    "Name": "Vise igraca",
+    "Projects": [
+      {
+        "Path": "Server\\Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\PokretanjeViseKlijenta\\PokretanjeViseKlijenta.csproj",
+        "Action": "Start"
+      }
+    ]
+  },
+  {
+    "Name": "Jedan igrac",
+    "Projects": [
+      {
+        "Path": "Server\\Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\Klijent\\Klijent.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

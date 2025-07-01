@@ -14,8 +14,8 @@ namespace Klijent
         {
             Socket klijentUdpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             // PROMENITE IP ADRESU U ZAVISNOSTI OD VAŠE KONFIGURACIJE MREŽE
-            //IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.56.1"), 12345); // Kaca
-            IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.1.2"), 12345); // Jana
+            IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.56.1"), 12345); // Kaca
+            //IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.1.2"), 12345); // Jana
             byte[] buffer = new byte[1024];
 
             Console.WriteLine("Klijent je spreman za povezivanje sa serverom, pritisnite enter");
@@ -34,31 +34,62 @@ namespace Klijent
 
             } while (string.IsNullOrEmpty(imeIgraca));
 
-            string listaIgara;
+            string listaIgara = "";
             string[] igre;
             bool validnaListaIgara = false;
+
+            string odgovor = "";
             do
             {
-                Console.WriteLine("Izaberite igre koje želite igrati [sl, sk, kzz] (odvojene zarezima): ");
-                listaIgara = Console.ReadLine()?.Trim();
-                igre = listaIgara.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(igra => igra.Trim()).ToArray();
+                Console.WriteLine("Izaberite da li hocete 'TAKMICENJE' ili 'TRENING': ");
+                odgovor = Console.ReadLine()?.Trim().ToLower();
 
-                if (igre.Length > 0 && igre.All(g => g == "sl" || g == "sk" || g == "kzz"))
+                if (odgovor.Equals("takmicenje"))
                 {
-                    validnaListaIgara = true;
+                    //Console.WriteLine("Takmicenje");
+
+                    listaIgara = "sl, sk, kzz";
+                    break;
+                }
+                else if (odgovor.Equals("trening"))
+                {
+                    //Console.WriteLine("Trening");
+
+                    do
+                    {
+                        Console.WriteLine("Izaberite igre koje želite igrati [sl, sk, kzz] (odvojene zarezima): ");
+                        listaIgara = Console.ReadLine()?.Trim();
+                        igre = listaIgara.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(igra => igra.Trim()).ToArray();
+
+                        if (igre.Length > 0 && igre.All(g => g == "sl" || g == "sk" || g == "kzz"))
+                        {
+                            validnaListaIgara = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Neispravan unos igara. Molimo unesite 'sl', 'sk' i/ili 'kzz' odvojene zarezima.");
+                        }
+
+                    } while (!validnaListaIgara);
+                    break;
+
                 }
                 else
                 {
-                    Console.WriteLine("Neispravan unos igara. Molimo unesite 'sl', 'sk' i/ili 'kzz' odvojene zarezima.");
+                    Console.WriteLine("\nNiste ispravno uneli vasu zelju.");
                 }
-            } while (!validnaListaIgara);
-
+            } while (odgovor != "takmicenje" || odgovor != "trening");
 
             string udpPoruka = $"PRIJAVA: {imeIgraca}, {listaIgara}";
             byte[] udpBajti = Encoding.UTF8.GetBytes(udpPoruka);
 
             klijentUdpSocket.SendTo(udpBajti, serverUdpEP);
             Console.WriteLine("Uspešno poslata UDP prijava. Čekam potvrdu od servera...");
+
+            // SALJEMO SERVERU MOD KOJI JE IZABRAN
+            string udpModPoruka = $"MOD: {odgovor.ToUpper()}";
+            byte[] udpModBajti = Encoding.UTF8.GetBytes(udpModPoruka);
+            klijentUdpSocket.SendTo(udpModBajti, serverUdpEP);
 
             EndPoint tempRemoteEP = new IPEndPoint(IPAddress.Any, 0);
             int receivedBytes = klijentUdpSocket.ReceiveFrom(buffer, ref tempRemoteEP);
@@ -79,8 +110,8 @@ namespace Klijent
             try
             {
                 // PROMENITE IP ADRESU U ZAVISNOSTI OD VAŠE KONFIGURACIJE MREŽE
-                //tcpClient = new TcpClient("192.168.56.1", 12346); // Kaca
-                tcpClient = new TcpClient("192.168.1.2", 12346); // Jana
+                tcpClient = new TcpClient("192.168.56.1", 12346); // Kaca
+                //tcpClient = new TcpClient("192.168.1.2", 12346); // Jana
                 stream = tcpClient.GetStream();
                 Console.WriteLine("Klijent je uspešno povezan sa serverom putem TCP-a!");
 
@@ -156,7 +187,7 @@ namespace Klijent
                 // Sada kada smo sigurni da smo dobili poruku koja traži "SPREMAN", tražimo ga od korisnika
                 do
                 {
-                    Console.Write("Vaš odgovor: ");
+                    Console.Write("Vas odgovor: ");
                     prviSpreman = Console.ReadLine()?.Trim();
                     if (prviSpreman.ToLower() != "spreman")
                     {
@@ -182,51 +213,57 @@ namespace Klijent
                     }
 
                     string serverOdgovor = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
-                    Console.WriteLine("\nSERVER: " + serverOdgovor);
+                    Console.WriteLine($"\n{serverOdgovor}");
 
-                    if (serverOdgovor.ToLower().Contains("sve igre završene") || serverOdgovor.ToLower().Contains("hvala na igri") || serverOdgovor.ToLower().Contains("prekidam vezu"))
+                    if (serverOdgovor.ToLower().Contains("prekidam vezu") ||
+                        serverOdgovor.ToLower().Contains("hvala na igri") ||
+                        serverOdgovor.ToLower().Contains("dovidenja"))
                     {
                         break;
                     }
-                    else if (serverOdgovor.ToLower().Contains("unesite reč:") ||
+                    else if (serverOdgovor.ToLower().Contains("unesite rec:") ||
                              serverOdgovor.ToLower().Contains("unesi 4 znaka") ||
                              serverOdgovor.ToLower().Contains("izaberite tacan odgovor") ||
                              serverOdgovor.ToLower().Contains("unesi broj 1-3:") ||
-                             serverOdgovor.ToLower().Contains("pokušaj") || 
+                             serverOdgovor.ToLower().Contains("pokusajte ponovo:") ||
                              serverOdgovor.ToLower().Contains("sledece pitanje:"))
                     {
                         // Ako server traži specifičan odgovor (za igru)
                         string odgovorKlijenta;
                         do
                         {
-                            Console.Write("Vaš odgovor: ");
+                            Console.Write("Vas odgovor: ");
                             odgovorKlijenta = Console.ReadLine()?.Trim();
 
                             if (string.IsNullOrWhiteSpace(odgovorKlijenta))
                             {
-                                Console.WriteLine("Odgovor ne može biti prazan! Molimo unesite nešto.");
+                                Console.WriteLine("Odgovor ne moze biti prazan! Molimo unesite nesto.");
                             }
                         } while (string.IsNullOrWhiteSpace(odgovorKlijenta));
 
                         byte[] odgovorBytes = Encoding.UTF8.GetBytes(odgovorKlijenta);
                         stream.Write(odgovorBytes, 0, odgovorBytes.Length);
-                        Console.WriteLine($"Klijent poslao: '{odgovorKlijenta}'");
+                        //Console.WriteLine($"Klijent poslao: '{odgovorKlijenta}'");
                     }
-                    // Ako serverski odgovor ne spada ni u jedan od gore navedenih,
-                    // to je verovatno poruka o rezultatu prethodne igre i prelaženju na sledeću.
-                    // U tom slučaju, klijent jednostavno nastavlja petlju i čeka sledeću poruku.
+
+                    // Ako server javlja kraj igre ili rezultate, prikazujemo dodatno
+                    if (serverOdgovor.ToLower().Contains("cestitamo") ||
+                        serverOdgovor.ToLower().Contains("nazalost"))
+                    {
+                        Console.WriteLine("\n======================== KRAJ IGRE ========================");
+                    }
                 }
             }
             catch (SocketException ex)
             {
-                Console.WriteLine($"Greška u komunikaciji: {ex.Message}");
+                Console.WriteLine($"Greska u komunikaciji: {ex.Message}");
             }
             finally
             {
                 stream?.Close();
                 tcpClient?.Close();
                 klijentUdpSocket.Close();
-                Console.WriteLine("Veza zatvorena. Doviđenja!");
+                Console.WriteLine("Veza zatvorena. Dovidjenja!");
                 Console.ReadKey();
             }
         }
