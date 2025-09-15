@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace PokretanjeViseKlijenta
 {
@@ -14,8 +15,8 @@ namespace PokretanjeViseKlijenta
                 string klijentPutanja = @"C:\Users\Korisnik\OneDrive\Desktop\PRMuIS_projekat2\Klijent\bin\Debug\Klijent.exe";
                 Process klijentProces = new Process();
                 klijentProces.StartInfo.FileName = klijentPutanja;
-                klijentProces.StartInfo.Arguments = $"{i + 1}"; // argument - broj klijenata
-                klijentProces.Start(); //pokretanje klijenta
+                klijentProces.StartInfo.Arguments = $"{i + 1}"; 
+                klijentProces.Start(); 
                 Console.WriteLine($"Pokrenut klijent #{i + 1}");
             }
         }

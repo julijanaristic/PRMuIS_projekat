@@ -8,12 +8,12 @@ namespace KlaseZaIgru.KoZnaZna
     public class KoZnaZna
     {
         public string TekucePitanje { get; private set; }
-        public int TacanOdgovor { get; private set; } //broj opcije koja predstavlja tacan odgovor
+        public int TacanOdgovor { get; private set; }
 
         public Dictionary<string, int> SvaPitanja { get; set; } = new Dictionary<string, int>();
 
         public List<string> PitanjaLista { get; set; } = new List<string>();
-        //private int TrenutnoPitanje = 0;
+
         public KoZnaZna()
         {
             UcitavajPitanja("pitanja.txt");
@@ -50,13 +50,10 @@ namespace KlaseZaIgru.KoZnaZna
             Random random = new Random();
             PitanjaLista = PitanjaLista.OrderBy(x => random.Next()).ToList();
         }
-
         public int ProveriOdgovor(int odgovor)
         {
             return odgovor == TacanOdgovor ? 10 : -5;
         }
-
-
         public string PostaviSledecePitanje()
         {
 
@@ -66,12 +63,11 @@ namespace KlaseZaIgru.KoZnaZna
             }
 
             Random random = new Random();
-            int indeks = random.Next(PitanjaLista.Count); //nasumicno bira pitanje
+            int indeks = random.Next(PitanjaLista.Count);
 
             TekucePitanje = PitanjaLista[indeks];
             TacanOdgovor = SvaPitanja[TekucePitanje];
 
-            //uklanjamo postavljeno pitanje da se ne ponavlja
             PitanjaLista.RemoveAt(indeks);
 
             return TekucePitanje;

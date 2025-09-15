@@ -24,12 +24,10 @@ namespace Server
         private static List<Socket> klijenti = new List<Socket>();
         private static Dictionary<string, string> modPoIgracu = new Dictionary<string, string>();
 
-        //za slagalicu
         private static Slagalica zajednickaSlagalica;
         private static string zajednickaGenerisanaSlova;
         private static Dictionary<Socket, bool> odgovorPoReci = new Dictionary<Socket, bool>();
 
-        //za skocko
         private static Skocko zajednickiSkocko;
         private static string zajednickaGenerisanaKombinacija;
         private static Dictionary<Socket, bool> odgovorenoUSkockoPokusaju = new Dictionary<Socket, bool>();
@@ -38,7 +36,6 @@ namespace Server
         private static Socket prviPogodioKombinaciju = null;
         private static Dictionary<Socket, int> skockoPoeni = new Dictionary<Socket, int>();
 
-        //za ko zna zna
         private static KoZnaZna zajednickiKzz;
         private static List<string> zajednickaPitanja;
         private static int trenutnoPitanjeKzz = 0;
@@ -48,17 +45,12 @@ namespace Server
         static void Main(string[] args)
         {
             Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            //za IPv4 se koristi AddressFamily.InterNetwork, SocketType.Dgram je za UDP
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Any, 12345);
-            //IPAddress.Any - Koristi se da se utičnica veže na sve dostupne mrežne interfejse
-            //12345 - Broj porta na kojem utičnica osluškuje zahteve
             serverSocket.Bind(serverEP);
 
             Console.WriteLine("Server pokrenut. Čekanje na prijave igrača preko UDP-a.");
 
             TcpListener tcpListener = new TcpListener(IPAddress.Any, 12346);
-            //TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.56.1"), 12346);
-            //TcpListener tcpListener = new TcpListener(IPAddress.Parse("192.168.1.2"), 12346);
             tcpListener.Start();
 
 
@@ -112,11 +104,10 @@ namespace Server
 
                         modPoIgracu[imeIgraca] = mod;
 
-                        continue; // vrati se na cekanje sledece poruke
+                        continue; 
                     }
                 }
 
-                //TCP konekcija, prihvatanje klijenta
                 if (tcpListener.Pending())
                 {
                     Socket noviSocket = tcpListener.AcceptSocket();
@@ -124,12 +115,11 @@ namespace Server
                     klijenti.Add(noviSocket);
                     poeni[noviSocket] = 0;
                     stanje[noviSocket] = "ime";
-                    igraciSpremni[noviSocket] = false; //svi na pocetku nisu spremni
+                    igraciSpremni[noviSocket] = false; 
                     Console.WriteLine($"Povezao se novi klijent putem TCP-a: {noviSocket.RemoteEndPoint}");
 
                 }
 
-                //obrada postojecih tcp konekcija
                 foreach (Socket klijent in klijenti.ToList())
                 {
                     try
@@ -144,7 +134,7 @@ namespace Server
                                 klijenti.Remove(klijent);
                                 Console.WriteLine("Klijent se odvezao.");
                                 klijent.Close();
-                                continue; //idi na sledeceg klijenta u petlji
+                                continue;
                             }
 
                             string poruka = Encoding.UTF8.GetString(buffer, 0, bytes).Trim();
@@ -176,7 +166,7 @@ namespace Server
                                     klijenti.Remove(klijent);
                                     Console.WriteLine("Klijent se odvezao.");
                                     klijent.Close();
-                                    continue; //idi na sledeceg klijenta u petlji
+                                    continue; 
                                 }
                             }
                             else if (stanjeKlijenta == "pocetak")
@@ -186,7 +176,7 @@ namespace Server
                                     igraciSpremni[klijent] = true;
                                     klijent.Send(Encoding.UTF8.GetBytes("Vasa spremnost je zabelezena. Cekamo ostale igrace..."));
 
-                                    if (igraciSpremni.Values.All(v => v)) //kad su svi rekli spreman
+                                    if (igraciSpremni.Values.All(v => v)) 
                                     {
                                         Console.WriteLine("Svi igraci su spremni! Pocinje igra za sve!");
 
@@ -195,8 +185,6 @@ namespace Server
                                             igrac.Send(Encoding.UTF8.GetBytes("Svi su rekli SPREMAN! Krecemo odmah!\n"));
                                             ZapocniSledecuIgru(igrac);
 
-                                            // Provera da li je klijent zatvoren unutar ZapocniSledecuIgru (ako nema više igara)
-                                            // Ako je metoda ZapocniSledecuIgru detektovala kraj, onda više neće biti u mapama.
                                             if (!stanje.ContainsKey(igrac))
                                             {
                                                 igrac.Close();
@@ -254,21 +242,18 @@ namespace Server
                                 }
                                 else
                                 {
-                                    // Detektujemo prvog koji je pogodio
                                     if (prviPogodioKombinaciju == null)
                                     {
                                         prviPogodioKombinaciju = klijent;
                                     }
                                 }
 
-                                // Kada svi odgovore u toj rundi
                                 if (odgovorenoUSkockoPokusaju.Values.All(v => v))
                                 {
                                     bool sviIskoristiliPokusaje = klijenti.All(k => pokusajiSkocko[k] >= 6);
 
                                     if (prviPogodioKombinaciju != null)
                                     {
-                                        // Neko je pogodio – proglasavamo kraj
                                         foreach (var k in klijenti)
                                         {
                                             if (k == prviPogodioKombinaciju)
@@ -302,12 +287,11 @@ namespace Server
                                             ZapocniSledecuIgru(k);
                                         }
                                         odgovorenoUSkockoPokusaju.Clear();
-                                        prviPogodioKombinaciju = null; // resetuj za sledeći put
+                                        prviPogodioKombinaciju = null; 
                                         continue;
                                     }
                                     else if (sviIskoristiliPokusaje)
                                     {
-                                        // Niko nije pogodio, svi iskoristili pokušaje
                                         foreach (var k in klijenti)
                                         {
                                             skockoPoeni[k] = 0;
@@ -320,7 +304,6 @@ namespace Server
                                     }
                                     else
                                     {
-                                        // Niko nije pogodio, ima još pokušaja – resetuj za sledeći krug
                                         foreach (var k in klijenti)
                                         {
                                             odgovorenoUSkockoPokusaju[k] = false;
@@ -359,14 +342,12 @@ namespace Server
 
                                     klijent.Send(Encoding.UTF8.GetBytes($"Poen: {poen}. Tacan odgovor je: {tacanOdgovor}\n"));
 
-                                    //proveri da li su svi odgovorili na trenutno pitanje
                                     if (odgovorenoNaTrenutnoPitanje.Values.All(v => v))
                                     {
                                         trenutnoPitanjeKzz++;
                                         if (trenutnoPitanjeKzz < 5)
                                         {
                                             tacniOdgovoriPoPitanju[trenutnoPitanjeKzz] = new List<Socket>();
-                                            //resetuj status i salji sledece pitanje
                                             foreach (var k in klijenti)
                                             {
                                                 odgovorenoNaTrenutnoPitanje[k] = false;
@@ -375,7 +356,6 @@ namespace Server
                                         }
                                         else
                                         {
-                                            //kraj kzz
                                             foreach (var k in klijenti)
                                             {
                                                 igreKlijenta[k].Dequeue();
@@ -425,13 +405,12 @@ namespace Server
 
         private static void ZapocniSledecuIgru(Socket klijent)
         {
-            //provera da li ima jos igraca za ovog klijenta
             if (igreKlijenta[klijent].Count == 0)
             {
                 igreKlijenta.Remove(klijent);
                 klijent.Send(Encoding.UTF8.GetBytes($"Sve igre zavrsene. Ukupno poena: {poeni[klijent]}.\n"));
 
-                if (igreKlijenta.Count == 0) // svi su završili
+                if (igreKlijenta.Count == 0) 
                 {
                     ProglasiPobednika();
                 }
@@ -446,7 +425,6 @@ namespace Server
                 {
                     zajednickaSlagalica = new Slagalica();
                 }
-                //slagalice[klijent] = zajednickaSlagalica;
                 zajednickaGenerisanaSlova = zajednickaSlagalica.PonudjenaSlova;
                 stanje[klijent] = "sl";
                 odgovorPoReci[klijent] = false;
@@ -459,7 +437,6 @@ namespace Server
                 {
                     zajednickiSkocko = new Skocko();
                 }
-                //skockoIgre[klijent] = zajednickiSkocko;
                 zajednickaGenerisanaKombinacija = zajednickiSkocko.TrazenaKombinacija;
                 pokusajiSkocko[klijent] = 0;
                 stanje[klijent] = "sk";
@@ -476,7 +453,7 @@ namespace Server
 
                 }
 
-                pitanjeKzz[klijent] = 0; // Resetuj brojač pitanja za KZZ
+                pitanjeKzz[klijent] = 0; 
                 stanje[klijent] = "kzz";
                 odgovorenoNaTrenutnoPitanje[klijent] = false;
                 klijent.Send(Encoding.UTF8.GetBytes($"\n---------------------Pocinje igra KO ZNA ZNA---------------------\nImate 5 pitanja ukupno, izaberite tacan odgovor na svako pitanje.\n{zajednickaPitanja[0]}"));
@@ -499,7 +476,6 @@ namespace Server
                 Console.WriteLine($"{ime,-15} | Ukupno: {ukupno,3} | Skocko: {skPoen}");
             }
 
-            // Traženje pobednika
             var pobednik = imena.Keys.First();
             foreach (var klijent in imena.Keys)
             {
@@ -509,14 +485,12 @@ namespace Server
                 }
                 else if (poeni[klijent] == poeni[pobednik])
                 {
-                    // Ako su izjednačeni, proveri Skocko poene
                     int sk1 = skockoPoeni.ContainsKey(klijent) ? skockoPoeni[klijent] : 0;
                     int sk2 = skockoPoeni.ContainsKey(pobednik) ? skockoPoeni[pobednik] : 0;
                     if (sk1 > sk2) pobednik = klijent;
                 }
             }
 
-            // Pošalji rezultat svima
             foreach (var klijent in imena.Keys)
             {
                 if (klijent == pobednik)

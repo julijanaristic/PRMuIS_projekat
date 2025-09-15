@@ -9,7 +9,6 @@ namespace KlaseZaIgru.Slagalica
         private Random Random = new Random();
         private static string[] Samoglasnici = { "A", "E", "I", "O", "U" };
         private static string[] Suglasnici = { "B", "C", "D", "DŽ", "F", "G", "H", "J", "K", "L", "LJ", "M", "N", "NJ", "P", "R", "S", "T", "V", "Z" };
-
         public string PonudjenaSlova { get; private set; }
         public string SastavljenaRec { get; set; }
 
@@ -48,7 +47,6 @@ namespace KlaseZaIgru.Slagalica
             SastavljenaRec = SastavljenaRec.ToUpper();
 
             List<string> dostupnaSlova = PonudjenaSlova.Split(' ').ToList();
-            //ključ je svako slovo, a vrednost broj puta koliko se to slovo pojavljuje u listi.
             Dictionary<string, int> dostupnaSlovaDict = dostupnaSlova.GroupBy(s => s).ToDictionary(g => g.Key, g => g.Count());
 
             List<string> recSlova = new List<string>();
@@ -57,10 +55,7 @@ namespace KlaseZaIgru.Slagalica
             {
                 if (i < SastavljenaRec.Length - 1)
                 {
-                    string dvostrukoSlovo = SastavljenaRec.Substring(i, 2); //uzima se dva uzastopna karaktera, ako i nije poslednji karakter
-                    //pokušava da se uzme rec[i] i rec[i+1] kao jedno dvostruko slovo
-                    //Ako je ovo dvostruko slovo (dvostrukoSlovo) prisutno u listi dostupnaSlova, ono se dodaje u listu recSlova.
-                    //Zatim se i pomera za 2 (jer su dva karaktera već obrađena), a petlja se nastavlja sa sledećim karakterom.
+                    string dvostrukoSlovo = SastavljenaRec.Substring(i, 2); 
                     if (dostupnaSlova.Contains(dvostrukoSlovo))
                     {
                         recSlova.Add(dvostrukoSlovo);
@@ -71,7 +66,7 @@ namespace KlaseZaIgru.Slagalica
                 recSlova.Add(SastavljenaRec[i].ToString());
                 i++;
             }
-            //broji koliko puta se svako slovo pojavljuje u unetoj reči.
+           
             Dictionary<string, int> recSlovaDict = recSlova.GroupBy(s => s).ToDictionary(g => g.Key, g => g.Count());
 
 
@@ -79,11 +74,11 @@ namespace KlaseZaIgru.Slagalica
             {
                 if (!dostupnaSlovaDict.ContainsKey(p.Key) || dostupnaSlovaDict[p.Key] < p.Value)
                 {
-                    return 0; //rec nije validna
+                    return 0; 
                 }
             }
 
-            return SastavljenaRec.Length * 5; //poeni = 5 * broj slova
+            return SastavljenaRec.Length * 5; 
         }
     }
 }

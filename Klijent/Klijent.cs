@@ -13,9 +13,8 @@ namespace Klijent
         static void Main(string[] args)
         {
             Socket klijentUdpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            // PROMENITE IP ADRESU U ZAVISNOSTI OD VAŠE KONFIGURACIJE MREŽE
-            IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.56.1"), 12345); // Kaca
-            //IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.1.2"), 12345); // Jana
+            //IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.56.1"), 12345); // Kaca
+            IPEndPoint serverUdpEP = new IPEndPoint(IPAddress.Parse("192.168.1.2"), 12345); // Jana
             byte[] buffer = new byte[1024];
 
             Console.WriteLine("Klijent je spreman za povezivanje sa serverom, pritisnite enter");
@@ -46,15 +45,11 @@ namespace Klijent
 
                 if (odgovor.Equals("takmicenje"))
                 {
-                    //Console.WriteLine("Takmicenje");
-
                     listaIgara = "sl, sk, kzz";
                     break;
                 }
                 else if (odgovor.Equals("trening"))
                 {
-                    //Console.WriteLine("Trening");
-
                     do
                     {
                         Console.WriteLine("Izaberite igre koje želite igrati [sl, sk, kzz] (odvojene zarezima): ");
@@ -86,7 +81,6 @@ namespace Klijent
             klijentUdpSocket.SendTo(udpBajti, serverUdpEP);
             Console.WriteLine("Uspešno poslata UDP prijava. Čekam potvrdu od servera...");
 
-            // SALJEMO SERVERU MOD KOJI JE IZABRAN
             string udpModPoruka = $"MOD: {odgovor.ToUpper()}";
             byte[] udpModBajti = Encoding.UTF8.GetBytes(udpModPoruka);
             klijentUdpSocket.SendTo(udpModBajti, serverUdpEP);
@@ -104,87 +98,77 @@ namespace Klijent
                 return;
             }
 
-
             TcpClient tcpClient = null;
             NetworkStream stream = null;
             try
             {
-                // PROMENITE IP ADRESU U ZAVISNOSTI OD VAŠE KONFIGURACIJE MREŽE
-                tcpClient = new TcpClient("192.168.56.1", 12346); // Kaca
-                //tcpClient = new TcpClient("192.168.1.2", 12346); // Jana
+                //tcpClient = new TcpClient("192.168.56.1", 12346); // Kaca
+                tcpClient = new TcpClient("192.168.1.2", 12346); // Jana
                 stream = tcpClient.GetStream();
                 Console.WriteLine("Klijent je uspešno povezan sa serverom putem TCP-a!");
 
-                // Prvo pošalji svoje ime serveru preko TCP-a
                 byte[] imeBajti = Encoding.UTF8.GetBytes(imeIgraca);
                 stream.Write(imeBajti, 0, imeBajti.Length);
                 Console.WriteLine($"Klijent poslao svoje ime preko TCP-a: '{imeIgraca}'");
 
-                // --- Pocetak: Rukovanje prvim "SPREMAN" zahtevom servera ---
                 string prviSpreman;
                 string initialServerResponse;
                 int initialBytesRead;
 
                 bool serverSpremanPorukaPrimljena = false;
 
-                // Prvo pročitaj poruku od servera (koja bi trebalo da sadrži zahtev za "SPREMAN")
                 do
                 {
-                    initialBytesRead = 0; // Resetuj za svaki pokušaj čitanja
+                    initialBytesRead = 0; 
                     try
                     {
-                        if (stream.DataAvailable) // Proveri da li ima podataka pre čitanja
+                        if (stream.DataAvailable) 
                         {
                             initialBytesRead = stream.Read(buffer, 0, buffer.Length);
                             if (initialBytesRead > 0)
                             {
                                 initialServerResponse = Encoding.UTF8.GetString(buffer, 0, initialBytesRead).Trim();
 
-                                // Sada koristimo TAČAN string koji server šalje (iz vašeg debug loga)
                                 if (initialServerResponse.ToLower().Contains("ako ste spremni, unesite poruku 'spreman':"))
                                 {
                                     serverSpremanPorukaPrimljena = true;
-                                    Console.WriteLine("\nSERVER: " + initialServerResponse); // Ispiši serversku poruku
+                                    Console.WriteLine("\nSERVER: " + initialServerResponse); 
                                 }
                                 else
                                 {
-                                    Console.WriteLine("\nSERVER: " + initialServerResponse); // Ispiši svejedno, ako je neočekivana poruka
+                                    Console.WriteLine("\nSERVER: " + initialServerResponse); 
                                     Console.WriteLine("Klijent: Prva poruka servera nije sadržala očekivani zahtev za 'SPREMAN'. Pokušavam ponovo...");
                                 }
                             }
                             else
                             {
                                 Console.WriteLine("Klijent: stream.Read() vratio 0 bajtova. Server je možda zatvorio konekciju ili nema više podataka.");
-                                break; // Izlazak iz do-while petlje ako je konekcija zatvorena
+                                break; 
                             }
                         }
                         else
                         {
-                            Thread.Sleep(50); // Kratka pauza ako nema podataka odmah, da se ne vrti prazno
+                            Thread.Sleep(50); 
                         }
                     }
                     catch (IOException ex) when ((ex.InnerException as SocketException)?.SocketErrorCode == SocketError.WouldBlock)
                     {
-                        // Ovo se dešava ako je socket neblokirajući i nema odmah dostupnih podataka
-                        Thread.Sleep(50); // Kratka pauza pre ponovnog pokušaja čitanja
+                        Thread.Sleep(50); 
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine($"Klijent: Neplanirana greška prilikom čitanja prve serverske poruke: {ex.Message}");
-                        break; // Prekini petlju u slučaju neplanirane greške
+                        break; 
                     }
 
                 } while (!serverSpremanPorukaPrimljena);
 
-                // Ako nismo primili 'SPREMAN' poruku, i nismo izašli zbog zatvorene veze (initialBytesRead > 0),
-                // to znači da nešto nije u redu i treba prekinuti.
                 if (!serverSpremanPorukaPrimljena)
                 {
                     Console.WriteLine("Klijent: Nije primljena očekivana prva 'SPREMAN' poruka od servera. Prekidam rad.");
-                    return; // Izlazak iz Main metode
+                    return; 
                 }
 
-                // Sada kada smo sigurni da smo dobili poruku koja traži "SPREMAN", tražimo ga od korisnika
                 do
                 {
                     Console.Write("Vas odgovor: ");
@@ -198,10 +182,7 @@ namespace Klijent
                 byte[] prviSpremanBajti = Encoding.UTF8.GetBytes(prviSpreman);
                 stream.Write(prviSpremanBajti, 0, prviSpremanBajti.Length);
                 Console.WriteLine($"Klijent poslao: '{prviSpreman}'");
-                // --- Kraj: Rukovanje prvim "SPREMAN" zahtevom servera ---
 
-
-                // Glavna petlja za igru
                 while (true)
                 {
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
@@ -228,7 +209,6 @@ namespace Klijent
                              serverOdgovor.ToLower().Contains("pokusajte ponovo:") ||
                              serverOdgovor.ToLower().Contains("sledece pitanje:"))
                     {
-                        // Ako server traži specifičan odgovor (za igru)
                         string odgovorKlijenta;
                         do
                         {
@@ -243,10 +223,8 @@ namespace Klijent
 
                         byte[] odgovorBytes = Encoding.UTF8.GetBytes(odgovorKlijenta);
                         stream.Write(odgovorBytes, 0, odgovorBytes.Length);
-                        //Console.WriteLine($"Klijent poslao: '{odgovorKlijenta}'");
                     }
 
-                    // Ako server javlja kraj igre ili rezultate, prikazujemo dodatno
                     if (serverOdgovor.ToLower().Contains("cestitamo") ||
                         serverOdgovor.ToLower().Contains("nazalost"))
                     {

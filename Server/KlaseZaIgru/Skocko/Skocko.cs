@@ -8,7 +8,7 @@ namespace KlaseZaIgru.Skocko
         private Random Random = new Random();
         private static char[] Znakovi = { 'H', 'T', 'P', 'K', 'S', 'Z' };
 
-        public string TrazenaKombinacija { get; set; } //sadrzi 4 slova
+        public string TrazenaKombinacija { get; set; }
         public string TekucaKombinacija { get; set; }
 
         public Skocko()
@@ -25,7 +25,7 @@ namespace KlaseZaIgru.Skocko
         {
             for (int i = 0; i < 4; i++)
             {
-                if (i == 3) //ako je to zadnji karakter 
+                if (i == 3) 
                 {
                     char[] karakteri = TrazenaKombinacija.ToCharArray();
                     char prviKarakter = karakteri[0];
@@ -61,7 +61,6 @@ namespace KlaseZaIgru.Skocko
                     TrazenaKombinacija += Znakovi[Random.Next(Znakovi.Length)];
                 }
             }
-            //Console.WriteLine(TrazenaKombinacija);
         }
 
         public string ProveriKombinaciju(string kombinacija)
@@ -69,13 +68,12 @@ namespace KlaseZaIgru.Skocko
             TekucaKombinacija = kombinacija;
             char[] znakoviOdKlijenta = TekucaKombinacija.ToCharArray();
             char[] znakoviOdServera = TrazenaKombinacija.ToCharArray();
-            bool[] pogodjeniNaMestu = new bool[4]; //prati koji su tacno pogodjeni
-            bool[] iskorisceni = new bool[4]; //prati koji su znakovi servera vec korisceni
+            bool[] pogodjeniNaMestu = new bool[4]; 
+            bool[] iskorisceni = new bool[4]; 
 
             int znakoviNaOdgovarajucemMestu = 0;
             int znakoviNaPogresnomMestu = 0;
 
-            //prvo prolazimo i trazimo znakove na tacnom mestu
             for (int i = 0; i < 4; i++)
             {
                 if (znakoviOdKlijenta[i] == znakoviOdServera[i])
@@ -86,18 +84,17 @@ namespace KlaseZaIgru.Skocko
                 }
             }
 
-            //sada trazimo znakove koji su deo kombinacije ali nisu na pravom mestu
-            for (int i = 0; i < 4; i++) // i prolazi kroz  tekucuKombinaciju
+            for (int i = 0; i < 4; i++) 
             {
-                if (!pogodjeniNaMestu[i]) //znaci gleda ta mesta gde jos nije pogodjeno slovo
+                if (!pogodjeniNaMestu[i]) 
                 {
-                    for (int j = 0; j < 4; j++) // j prolazi kroz trazenuKombinaciju
+                    for (int j = 0; j < 4; j++) 
                     {
                         if (!iskorisceni[j] && znakoviOdKlijenta[i] == znakoviOdServera[j])
                         {
                             znakoviNaPogresnomMestu++;
                             iskorisceni[j] = true;
-                            break; //sprecava visestruko brojanje istog slova
+                            break; 
                         }
                     }
                 }
